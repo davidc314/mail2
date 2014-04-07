@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "35"
             endingLineNumber = "35"
-            landmarkName = "-init"
+            landmarkName = "-dealloc"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mail/AppDelegate.m"
-            timestampString = "413983195.025619"
+            timestampString = "418548922.809866"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "-tableView:viewForTableColumn:row:"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "-deleteMessage:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,14 +41,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mail/AppDelegate.m"
-            timestampString = "413985102.373672"
+            filePath = "Mail/Folder.m"
+            timestampString = "418112701.220736"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "-search:"
-            landmarkType = "5">
+            startingLineNumber = "15"
+            endingLineNumber = "15">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -11,7 +11,9 @@
 
 @interface ConnectionManager : NSObject
 
-@property (strong,readonly) MCOIMAPSession *session;
+@property (strong,readonly) MCOIMAPSession *imapSession;
+@property (strong,readonly) MCOSMTPSession *smtpSession;
+@property (strong) NSMutableArray *accounts;
 
 + (id)sharedManager;
 @end

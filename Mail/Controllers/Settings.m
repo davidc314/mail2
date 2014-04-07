@@ -8,23 +8,17 @@
 
 #import "Settings.h"
 #import "Account.h"
-#import "AccountCellView.h"
+#import "AccountsManager.h"
 
-@interface Settings ()
+#define FILE_NAME @"accounts.lst"
 
-@end
-
-@implementation Settings {
-    NSMutableArray *accounts;
-}
+@implementation Settings
 
 - (id)initWithWindow:(NSWindow *)window
 {
     self = [super initWithWindow:window];
     if (self) {
-        // Initialization code here.
-        [_table reloadData];
-        accounts = [[NSMutableArray alloc] init];
+        self.connectionType =[NSArray arrayWithObjects:@(MCOConnectionTypeClear),@(MCOConnectionTypeTLS),@(MCOConnectionTypeStartTLS),nil];
     }
     return self;
 }
@@ -33,18 +27,47 @@
 {
     [super windowDidLoad];
     
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
+
 - (IBAction)newAccount:(id)sender {
-    [self.table insertRowsAtIndexes:[NSIndexSet indexSetWithIndex:self.table.numberOfRows] withAnimation:NSTableViewAnimationSlideUp];
+    [self willChangeValueForKey:@"accounts"];
+    [[AccountsManager sharedManager] addAccount];
+    [self didChangeValueForKey:@"accounts"];
+    //[self.arrayController add]
 }
 
-- (NSInteger) numberOfRowsInTableView:(NSTableView *)tableView {
-    return 5;
+- (IBAction)removeAccount:(id)sender {
+    NSIndexSet *indexSet = [self.arrayController selectionIndexes];
+    [[AccountsManager sharedManager] removeAccountsAtIndexes:indexSet];
+    [self.tableView removeRowsAtIndexes:indexSet withAnimation:NSTableViewAnimationSlideRight];
 }
 
-- (NSView *) tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    AccountCellView *cellView = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
-    return cellView;
+- (BOOL) windowShouldClose:(id)sender {
+    [self.window makeFirstResponder:self.window];
+    [[AccountsManager sharedManager] saveAccounts];
+    return YES;
 }
+
+- (NSMutableArray *) accounts {
+    NSLog(@"%@", [[AccountsManager sharedManager] accounts]);
+    return [[AccountsManager sharedManager] accounts];
+}
+
+- (void) setAccounts:(NSMutableArray *)accounts {
+    AccountsManager *actMan = [AccountsManager sharedManager];
+    NSLog(@"Accounts : %@",accounts);
+    actMan.accounts = accounts;
+}
+
+- (IBAction)columnChangeSelected:(id)sender
+{
+    [self.settingsView setHidden:(self.tableView.selectedRow == -1)];
+}
+
+ - (void)setValue:(id)value forKey:(NSString *)key
+{
+    NSLog(@"%@: %@", key, value);
+    [super setValue:value forKeyPath:key];
+}
+
 @end

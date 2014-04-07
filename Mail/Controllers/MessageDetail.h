@@ -17,6 +17,10 @@
 @property (weak) IBOutlet NSTextField *from;
 @property (weak) IBOutlet NSTextField *subject;
 
-- (id) initWithMessage:(Message *)message;
+@property (strong) NSMutableArray *attachments;
+
+- (id) initWithMessage:(Message *)message folder:(Folder *)folder account:(Account *)account;
+
+@property (strong) IBOutlet NSMenu *attachmentPopupMenu;
 
 @end

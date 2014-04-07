@@ -10,6 +10,13 @@
 
 @interface NewMessage : NSWindowController
 
-@property (weak) IBOutlet NSTextField *attachmentFileName;
+@property (weak) IBOutlet NSTokenField *to;
+@property (weak) IBOutlet NSTokenField *cc;
+@property (weak) IBOutlet NSTokenField *bcc;
+@property (weak) IBOutlet NSTextField *subject;
+@property (strong) IBOutlet NSTextView *body;
 
+@property (strong) NSMutableArray *attachments;
+@property (strong) IBOutlet NSArrayController *arrayController;
+@property (weak) IBOutlet NSCollectionView *collectionView;
 @end

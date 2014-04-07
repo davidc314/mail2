@@ -23,8 +23,11 @@
 
 - (id)init {
     if (self = [super init]) {
+        _accounts = [NSMutableArray array];
         Account *account = [[Account alloc] init];
-        _session = [account connectToIMAP];
+        [_accounts addObject:account];
+        //_imapSession = [account connectToIMAP];
+        //_smtpSession = [account connectToSMTP];
     }
     return self;
 }

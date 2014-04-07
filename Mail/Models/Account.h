@@ -9,22 +9,39 @@
 #import <Foundation/Foundation.h>
 #import <MailCore/MailCore.h>
 
-@interface Account : NSObject
+#import "MenuViewController.h"
 
-@property (strong,readonly) NSString  *name;
-@property (strong,readonly) NSString  *mail;
+@interface Account : NSObject <NSCoding>
 
-@property (strong,readonly) NSString  *username;
-@property (strong,readonly) NSString  *password;
+@property (strong) NSString  *name;
+@property (strong,nonatomic) NSString  *mail;
 
-@property (strong,readonly) NSString  *imapHostname;
-@property (assign,readonly) int  imapPort;
-@property (assign,readonly) MCOConnectionType imapConnectionType;
+@property (strong) NSString  *imapUsername;
+@property (strong) NSString  *imapPassword;
 
-@property (strong,readonly) NSString  *smtpHostname;
-@property (assign,readonly) int  smtpPort;
-@property (assign,readonly) MCOConnectionType smtpConnectionType;
+@property (strong) NSString  *imapHostname;
+@property (assign) int  imapPort;
+@property (assign) MCOConnectionType imapConnectionType;
 
+@property (strong) NSString  *smtpUsername;
+@property (strong) NSString  *smtpPassword;
 
-- (id) connectToIMAP;
+@property (strong) NSString  *smtpHostname;
+@property (assign) int  smtpPort;
+@property (assign) MCOConnectionType smtpConnectionType;
+
+@property (strong) MCOIMAPSession *imapSession;
+@property (strong) MCOSMTPSession *smtpSession;
+
+@property (assign) BOOL sameAuth;
+@property (strong) NSMutableArray *folders;
+@property (assign) NSUInteger nbUnread;
+
+@property (assign) BOOL valid;
+
+@property (strong) MenuViewController *menuViewController;
+
+- (BOOL) isGMAIL;
+- (void) fetchFolders;
+- (NSString *)label;
 @end

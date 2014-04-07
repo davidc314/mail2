@@ -7,15 +7,31 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "TableView.h"
 #import "SearchField.h"
+#import "AccountsManager.h"
+#import "Account.h"
+#import "Folder.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate,NSTableViewDataSource,NSTableViewDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
-@property (weak) IBOutlet TableView *inboxTable;
+@property (weak) IBOutlet NSTableView *inboxTable;
 @property (weak) IBOutlet NSMenu *statusMenu;
+@property (weak) IBOutlet NSMenu *foldersMenu;
+@property (weak) IBOutlet NSView *titleBarView;
+@property (weak) IBOutlet NSView *menuItemView;
+@property (weak) IBOutlet NSTextField *title;
+
 @property (weak) IBOutlet NSProgressIndicator *progress;
 @property (weak) IBOutlet SearchField *search;
+@property (weak) IBOutlet NSArrayController *arrayController;
+@property (weak) IBOutlet NSTreeController *treeController;
+
+@property (weak) NSArray *sortedMessages;
+
+
+@property (strong) AccountsManager *accountsManager;
+@property (strong) Account *selectedAccount;
+@property (strong) Folder *selectedFolder;
 
 @end

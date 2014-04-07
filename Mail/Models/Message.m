@@ -7,47 +7,32 @@
 //
 
 #import "Message.h"
-
+#import "Attachment.h"
 #import "ConnectionManager.h"
 
-@implementation Message {
-}
-+ (void)fetchMessagesInFolder:(NSString *)folder completion:(void (^)(NSArray * messages))handler
-{
-    NSMutableArray *messages = [NSMutableArray array];
+@implementation Message
     
-    MCOIMAPMessagesRequestKind requestKind = MCOIMAPMessagesRequestKindHeaders | MCOIMAPMessagesRequestKindFlags | MCOIMAPMessagesRequestKindGmailLabels;
-    MCOIndexSet *uids = [MCOIndexSet indexSetWithRange:MCORangeMake(1, UINT64_MAX)];
-    ConnectionManager *connection = [ConnectionManager sharedManager];
-    MCOIMAPFetchFoldersOperation *fetchFolders = [connection.session fetchAllFoldersOperation];
-    [fetchFolders start:^(NSError *error, NSArray *folders) {
-        
-        //NSLog(@"%@",folders);
-        
-    }];
-    MCOIMAPFetchMessagesOperation *fetchOperation = [connection.session fetchMessagesByUIDOperationWithFolder:folder requestKind:requestKind uids:uids];
+- (id) init {
+    self = [super init];
+    _from = @"test";
+    _subject = @"test";
+    _date = [[NSDate alloc] init];
     
-    [fetchOperation start:^(NSError * error, NSArray * fetchedMessages, MCOIndexSet * vanishedMessages) {
-        if(error) {
-            NSLog(@"Error downloading message headers:%@", error);
-        }
-        
-        for (MCOIMAPMessage *msg in fetchedMessages) {
-            [messages addObject:[[Message alloc] initWithMCOIMAPMessage:msg folder:folder]];
-        }
-        
-        handler(messages);
-
-    }];
-}
--  (id)initMessageWithTo: (NSString *)to Subject:(NSString *)subject{
     return self;
 }
-- (id)initWithMCOIMAPMessage:(MCOIMAPMessage *)msg folder:(NSString *)folder {
+-  (id)initBuildMessageWithTo: (NSArray *)to CC:(NSArray *)cc BCC:(NSArray *)bcc Subject:(NSString *)subject Body:(NSString *)body{
+    self = [super init];
+    _to = to;
+    _bcc = bcc;
+    _cc = cc;
+    _subject = subject;
+    _htmlBody = body;
+    return self;
+}
+- (id)initWithMCOIMAPMessage:(MCOIMAPMessage *)msg {
     self = [super init];
     
     MCOMessageHeader *header = [msg header];
-    
     if (self) {
         MCOAddress *fromAddress = [header from];
         
@@ -60,29 +45,86 @@
             _subject = [header subject];
         }
         else {
-            _subject = @"-";
+            _subject = @"(No object)";
         }
         _uid = [msg uid];
-        _folder = folder;
+        _date = [header date];
         
         //Message flags
-        _seen = [msg flags] & MCOMessageFlagSeen;
-        _replied = [msg flags] & MCOMessageFlagAnswered;
-        _forwarded = [msg flags] & MCOMessageFlagForwarded;
+        _flags = [msg flags];
+        
+        _seen = _flags  & MCOMessageFlagSeen;
+        _replied = _flags & MCOMessageFlagAnswered;
+        _forwarded = _flags & MCOMessageFlagForwarded;
+        
+        //Attachments
+        _hasAttachments = [[msg attachments] count] > 0;
+        
+        if (_hasAttachments) {
+            _attachments = [[NSMutableArray alloc] init];
+        }
         
     }
+    
+    
     return self;
 }
 
-- (void)fetchBody:(NSString *)swag completion:(void (^)(NSString * msgBody))handler{
-    ConnectionManager *connection = [ConnectionManager sharedManager];
-    MCOIMAPFetchContentOperation *fetchContentOperation = [connection.session fetchMessageByUIDOperationWithFolder:self.folder uid:(int)self.uid];
+
+//Get message body
+- (void)fetchBodyForFolder:(Folder *)folder account:(Account *)account completion:(void (^)(NSString *, NSMutableArray *))handler {
+    MCOIMAPFetchContentOperation *fetchContentOperation = [account.imapSession fetchMessageByUIDOperationWithFolder:folder.name uid:(int)self.uid];
     
     [fetchContentOperation start:^(NSError *error,NSData *data){
         MCOMessageParser * msg = [MCOMessageParser messageParserWithData:data];
+        MCOIMAPOperation *setFlagsSeen = [account.imapSession storeFlagsOperationWithFolder:folder.name uids:[MCOIndexSet indexSetWithIndex:self.uid] kind:MCOIMAPStoreFlagsRequestKindAdd flags:MCOMessageFlagSeen];
+        
+        [setFlagsSeen start:^(NSError *error){}];
+        
+        //Get message body
         NSString * msgBody = [msg htmlBodyRendering];
-        handler(msgBody);
+        
+        //Get message attachments
+        self.attachments = [NSMutableArray array];
+        
+        for (MCOAttachment *attachment in [msg attachments]) {
+            NSData *data = [attachment data];
+            NSURL *fileURL = [NSURL URLWithString:[attachment filename]];
+            NSString *fileName = [[fileURL lastPathComponent] stringByDeletingPathExtension];
+            Attachment *newAttachment = [[Attachment alloc] initWithName:fileName ext:[fileURL pathExtension]  size:[data length]];
+            [self.attachments addObject:newAttachment];
+        }
+        if (error) {
+            NSLog(@"Fetch body %@",error);
+        }
+        
+        //Callback
+        handler(msgBody,self.attachments);
     }];
+}
+
+//Send new message
+- (void) sendMessage {
+    ConnectionManager *connection = [ConnectionManager sharedManager];
+    
+    MCOMessageBuilder * builder = [[MCOMessageBuilder alloc] init];
+    
+    [[builder header] setFrom:[MCOAddress addressWithDisplayName:nil mailbox:connection.smtpSession.username]];
+    [[builder header] setTo:self.to];
+    [[builder header] setCc:self.cc];
+    [[builder header] setBcc:self.bcc];
+    [[builder header] setSubject:self.subject];
+    [builder setHTMLBody:self.htmlBody];
+    
+    NSData * rfc822Data = [builder data];
+    
+    MCOSMTPSendOperation *sendOperation = [connection.smtpSession sendOperationWithData:rfc822Data];
+    [sendOperation start:^(NSError *error) {
+        NSLog(@"Message send");
+    }];
+}
+- (NSString *) description {
+    return [NSString stringWithFormat:@"%@/%@",self.from,self.subject];
 }
 
 @end

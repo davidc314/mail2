@@ -68,7 +68,6 @@
     } else {
         [self.searchButtonCell setImage:searchImg];
     }
-    
     [self drawInteriorWithFrame:cellFrame inView:controlView];
 }
 

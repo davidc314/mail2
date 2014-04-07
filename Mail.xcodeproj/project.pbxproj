@@ -19,23 +19,40 @@
 		6367D03018AD4A9700B60DF4 /* NewMessage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6367D02918AD4A9700B60DF4 /* NewMessage.xib */; };
 		6367D03118AD4A9700B60DF4 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 6367D02B18AD4A9700B60DF4 /* Settings.m */; };
 		6367D03218AD4A9700B60DF4 /* Settings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6367D02C18AD4A9700B60DF4 /* Settings.xib */; };
-		6367D03718AD4AC400B60DF4 /* AccountCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6367D03418AD4AC400B60DF4 /* AccountCellView.m */; };
-		6367D03818AD4AC400B60DF4 /* MessageCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6367D03618AD4AC400B60DF4 /* MessageCellView.m */; };
-		63D7CCB518A97A9A002B7A90 /* openedmail_64.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D7CCB018A97A9A002B7A90 /* openedmail_64.png */; };
-		63D7CCB618A97A9A002B7A90 /* openedmail_128.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D7CCB118A97A9A002B7A90 /* openedmail_128.png */; };
-		63D7CCB718A97A9A002B7A90 /* openedmail_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D7CCB218A97A9A002B7A90 /* openedmail_256.png */; };
-		63D7CCB818A97A9A002B7A90 /* openedmail_512.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D7CCB318A97A9A002B7A90 /* openedmail_512.png */; };
-		63D7CCB918A97A9A002B7A90 /* openedmail_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D7CCB418A97A9A002B7A90 /* openedmail_1024.png */; };
-		63D7CCBC18A97B73002B7A90 /* openedmail_16.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D7CCBA18A97B73002B7A90 /* openedmail_16.png */; };
-		63D7CCBD18A97B73002B7A90 /* openedmail_32.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D7CCBB18A97B73002B7A90 /* openedmail_32.png */; };
-		63D7CCC118A98091002B7A90 /* closedmail_64_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D7CCC018A98091002B7A90 /* closedmail_64_black.png */; };
 		731FE27B18A3747E00715E68 /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731FE27A18A3747E00715E68 /* ConnectionManager.m */; };
+		73202CEC18ED33D500F0594B /* openedmail_16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = 73202CE518ED33D500F0594B /* openedmail_16x16.png */; };
+		73202CED18ED33D500F0594B /* openedmail_32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 73202CE618ED33D500F0594B /* openedmail_32x32.png */; };
+		73202CEE18ED33D500F0594B /* openedmail_64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = 73202CE718ED33D500F0594B /* openedmail_64x64.png */; };
+		73202CEF18ED33D500F0594B /* openedmail_128x128.png in Resources */ = {isa = PBXBuildFile; fileRef = 73202CE818ED33D500F0594B /* openedmail_128x128.png */; };
+		73202CF018ED33D500F0594B /* openedmail_256x256.png in Resources */ = {isa = PBXBuildFile; fileRef = 73202CE918ED33D500F0594B /* openedmail_256x256.png */; };
+		73202CF118ED33D500F0594B /* openedmail_512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 73202CEA18ED33D500F0594B /* openedmail_512x512.png */; };
+		73202CF218ED33D500F0594B /* openedmail_1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 73202CEB18ED33D500F0594B /* openedmail_1024x1024.png */; };
+		73202CFA18ED3BD500F0594B /* closedmail_16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = 73202CF318ED3BD500F0594B /* closedmail_16x16.png */; };
+		73202CFB18ED3BD500F0594B /* closedmail_32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 73202CF418ED3BD500F0594B /* closedmail_32x32.png */; };
+		73202CFC18ED3BD500F0594B /* closedmail_64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = 73202CF518ED3BD500F0594B /* closedmail_64x64.png */; };
+		73202CFD18ED3BD500F0594B /* closedmail_128x128.png in Resources */ = {isa = PBXBuildFile; fileRef = 73202CF618ED3BD500F0594B /* closedmail_128x128.png */; };
+		73202CFE18ED3BD500F0594B /* closedmail_256x256.png in Resources */ = {isa = PBXBuildFile; fileRef = 73202CF718ED3BD500F0594B /* closedmail_256x256.png */; };
+		73202CFF18ED3BD500F0594B /* closedmail_512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 73202CF818ED3BD500F0594B /* closedmail_512x512.png */; };
+		73202D0018ED3BD500F0594B /* closedmail_1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 73202CF918ED3BD500F0594B /* closedmail_1024x1024.png */; };
+		73202D0218ED3F9100F0594B /* status.png in Resources */ = {isa = PBXBuildFile; fileRef = 73202D0118ED3F9100F0594B /* status.png */; };
+		73202D0D18ED60D600F0594B /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73202D0B18ED60D600F0594B /* MenuViewController.m */; };
+		73202D0E18ED60D600F0594B /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73202D0C18ED60D600F0594B /* MenuViewController.xib */; };
+		732539AC18E30E6700F21A17 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 732539AB18E30E6700F21A17 /* save.png */; };
+		732539B218E30F0E00F21A17 /* open.png in Resources */ = {isa = PBXBuildFile; fileRef = 732539B118E30F0E00F21A17 /* open.png */; };
+		732539B418E311EC00F21A17 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 732539B318E311EC00F21A17 /* menu.png */; };
+		73298F4318E18FB500E05756 /* AttachmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73298F4018E18FB500E05756 /* AttachmentView.m */; };
+		73298F4418E18FB500E05756 /* FormatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73298F4218E18FB500E05756 /* FormatView.m */; };
+		73298F4718E1A9E500E05756 /* Attachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 73298F4618E1A9E500E05756 /* Attachment.m */; };
+		73298F4A18E1B89F00E05756 /* fileSizeTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73298F4918E1B89F00E05756 /* fileSizeTransformer.m */; };
+		73298F4D18E1C16C00E05756 /* AttachmentItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73298F4C18E1C16C00E05756 /* AttachmentItemViewController.m */; };
+		732F941E18E40B60008AC581 /* MessageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 732F941D18E40B60008AC581 /* MessageHeaderView.m */; };
+		7345876618E466C000B74D63 /* AccountsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7345876518E466C000B74D63 /* AccountsManager.m */; };
+		7353903918DAFE3A00A070F2 /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7353903818DAFE3A00A070F2 /* Folder.m */; };
 		736094151896744D00E664B4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 736094141896744D00E664B4 /* Cocoa.framework */; };
 		7360941F1896744D00E664B4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7360941D1896744D00E664B4 /* InfoPlist.strings */; };
 		736094211896744D00E664B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 736094201896744D00E664B4 /* main.m */; };
 		736094251896744D00E664B4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 736094231896744D00E664B4 /* Credits.rtf */; };
 		736094281896744D00E664B4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 736094271896744D00E664B4 /* AppDelegate.m */; };
-		7360942B1896744D00E664B4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736094291896744D00E664B4 /* MainMenu.xib */; };
 		7360942D1896744D00E664B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7360942C1896744D00E664B4 /* Images.xcassets */; };
 		736094341896744D00E664B4 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 736094331896744D00E664B4 /* XCTest.framework */; };
 		736094351896744D00E664B4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 736094141896744D00E664B4 /* Cocoa.framework */; };
@@ -43,7 +60,11 @@
 		7360943F1896744D00E664B4 /* MailTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7360943E1896744D00E664B4 /* MailTests.m */; };
 		7360945B1896749D00E664B4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7360945A1896749D00E664B4 /* Security.framework */; };
 		7360945C189674A600E664B4 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 736094591896746100E664B4 /* MailCore.framework */; };
-		7361F1FA189A4DC700E90F33 /* TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7361F1F9189A4DC700E90F33 /* TableView.m */; };
+		7374E1DA18E9400800741BE2 /* dateValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7374E1D918E9400800741BE2 /* dateValueTransformer.m */; };
+		7374E1E018E96E2600741BE2 /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7374E1DF18E96E2600741BE2 /* bar.png */; };
+		7374E1E318E9830F00741BE2 /* MessageRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7374E1E218E9830F00741BE2 /* MessageRowView.m */; };
+		7374E1E518E9962700741BE2 /* MailCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 736094591896746100E664B4 /* MailCore.framework */; };
+		739ABA0418F2918800EBD5F8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 739ABA0318F2918800EBD5F8 /* MainMenu.xib */; };
 		73AD529418A8EF1B00C3F1DB /* attachment.png in Resources */ = {isa = PBXBuildFile; fileRef = 73AD529218A8EF1B00C3F1DB /* attachment.png */; };
 		73AD529518A8EF1B00C3F1DB /* bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 73AD529318A8EF1B00C3F1DB /* bullet.png */; };
 		73AD529B18A8F46700C3F1DB /* reply.png in Resources */ = {isa = PBXBuildFile; fileRef = 73AD529A18A8F46700C3F1DB /* reply.png */; };
@@ -102,6 +123,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7374E1E418E9960E00741BE2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7374E1E518E9962700741BE2 /* MailCore.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		6317C0D118A5414E00479569 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		6367D01218AD457E00B60DF4 /* SearchField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchField.h; path = Views/SearchField.h; sourceTree = "<group>"; };
@@ -122,20 +156,45 @@
 		6367D02A18AD4A9700B60DF4 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Settings.h; path = Controllers/Settings.h; sourceTree = "<group>"; };
 		6367D02B18AD4A9700B60DF4 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Settings.m; path = Controllers/Settings.m; sourceTree = "<group>"; };
 		6367D02C18AD4A9700B60DF4 /* Settings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Settings.xib; path = Controllers/Settings.xib; sourceTree = "<group>"; };
-		6367D03318AD4AC400B60DF4 /* AccountCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountCellView.h; path = Views/AccountCellView.h; sourceTree = "<group>"; };
-		6367D03418AD4AC400B60DF4 /* AccountCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountCellView.m; path = Views/AccountCellView.m; sourceTree = "<group>"; };
-		6367D03518AD4AC400B60DF4 /* MessageCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageCellView.h; path = Views/MessageCellView.h; sourceTree = "<group>"; };
-		6367D03618AD4AC400B60DF4 /* MessageCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageCellView.m; path = Views/MessageCellView.m; sourceTree = "<group>"; };
-		63D7CCB018A97A9A002B7A90 /* openedmail_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = openedmail_64.png; path = Resources/logo/openedmail_64.png; sourceTree = "<group>"; };
-		63D7CCB118A97A9A002B7A90 /* openedmail_128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = openedmail_128.png; path = Resources/logo/openedmail_128.png; sourceTree = "<group>"; };
-		63D7CCB218A97A9A002B7A90 /* openedmail_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = openedmail_256.png; path = Resources/logo/openedmail_256.png; sourceTree = "<group>"; };
-		63D7CCB318A97A9A002B7A90 /* openedmail_512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = openedmail_512.png; path = Resources/logo/openedmail_512.png; sourceTree = "<group>"; };
-		63D7CCB418A97A9A002B7A90 /* openedmail_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = openedmail_1024.png; path = Resources/logo/openedmail_1024.png; sourceTree = "<group>"; };
-		63D7CCBA18A97B73002B7A90 /* openedmail_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = openedmail_16.png; path = Resources/logo/openedmail_16.png; sourceTree = "<group>"; };
-		63D7CCBB18A97B73002B7A90 /* openedmail_32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = openedmail_32.png; path = Resources/logo/openedmail_32.png; sourceTree = "<group>"; };
-		63D7CCC018A98091002B7A90 /* closedmail_64_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = closedmail_64_black.png; path = Resources/logo/closedmail_64_black.png; sourceTree = "<group>"; };
 		731FE27918A3747E00715E68 /* ConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionManager.h; sourceTree = "<group>"; };
 		731FE27A18A3747E00715E68 /* ConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionManager.m; sourceTree = "<group>"; };
+		73202CE518ED33D500F0594B /* openedmail_16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = openedmail_16x16.png; path = Resources/logo/openedmail/openedmail_16x16.png; sourceTree = "<group>"; };
+		73202CE618ED33D500F0594B /* openedmail_32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = openedmail_32x32.png; path = Resources/logo/openedmail/openedmail_32x32.png; sourceTree = "<group>"; };
+		73202CE718ED33D500F0594B /* openedmail_64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = openedmail_64x64.png; path = Resources/logo/openedmail/openedmail_64x64.png; sourceTree = "<group>"; };
+		73202CE818ED33D500F0594B /* openedmail_128x128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = openedmail_128x128.png; path = Resources/logo/openedmail/openedmail_128x128.png; sourceTree = "<group>"; };
+		73202CE918ED33D500F0594B /* openedmail_256x256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = openedmail_256x256.png; path = Resources/logo/openedmail/openedmail_256x256.png; sourceTree = "<group>"; };
+		73202CEA18ED33D500F0594B /* openedmail_512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = openedmail_512x512.png; path = Resources/logo/openedmail/openedmail_512x512.png; sourceTree = "<group>"; };
+		73202CEB18ED33D500F0594B /* openedmail_1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = openedmail_1024x1024.png; path = Resources/logo/openedmail/openedmail_1024x1024.png; sourceTree = "<group>"; };
+		73202CF318ED3BD500F0594B /* closedmail_16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = closedmail_16x16.png; path = Resources/logo/closedmail/closedmail_16x16.png; sourceTree = "<group>"; };
+		73202CF418ED3BD500F0594B /* closedmail_32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = closedmail_32x32.png; path = Resources/logo/closedmail/closedmail_32x32.png; sourceTree = "<group>"; };
+		73202CF518ED3BD500F0594B /* closedmail_64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = closedmail_64x64.png; path = Resources/logo/closedmail/closedmail_64x64.png; sourceTree = "<group>"; };
+		73202CF618ED3BD500F0594B /* closedmail_128x128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = closedmail_128x128.png; path = Resources/logo/closedmail/closedmail_128x128.png; sourceTree = "<group>"; };
+		73202CF718ED3BD500F0594B /* closedmail_256x256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = closedmail_256x256.png; path = Resources/logo/closedmail/closedmail_256x256.png; sourceTree = "<group>"; };
+		73202CF818ED3BD500F0594B /* closedmail_512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = closedmail_512x512.png; path = Resources/logo/closedmail/closedmail_512x512.png; sourceTree = "<group>"; };
+		73202CF918ED3BD500F0594B /* closedmail_1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = closedmail_1024x1024.png; path = Resources/logo/closedmail/closedmail_1024x1024.png; sourceTree = "<group>"; };
+		73202D0118ED3F9100F0594B /* status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = status.png; path = Resources/status.png; sourceTree = "<group>"; };
+		73202D0A18ED60D600F0594B /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		73202D0B18ED60D600F0594B /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		73202D0C18ED60D600F0594B /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		732539AB18E30E6700F21A17 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = save.png; path = Resources/save.png; sourceTree = "<group>"; };
+		732539B118E30F0E00F21A17 /* open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = open.png; path = Resources/open.png; sourceTree = "<group>"; };
+		732539B318E311EC00F21A17 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = Resources/menu.png; sourceTree = "<group>"; };
+		73298F3F18E18FB500E05756 /* AttachmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttachmentView.h; sourceTree = "<group>"; };
+		73298F4018E18FB500E05756 /* AttachmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttachmentView.m; sourceTree = "<group>"; };
+		73298F4118E18FB500E05756 /* FormatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormatView.h; sourceTree = "<group>"; };
+		73298F4218E18FB500E05756 /* FormatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormatView.m; sourceTree = "<group>"; };
+		73298F4518E1A9E500E05756 /* Attachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attachment.h; sourceTree = "<group>"; };
+		73298F4618E1A9E500E05756 /* Attachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attachment.m; sourceTree = "<group>"; };
+		73298F4818E1B89F00E05756 /* fileSizeTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fileSizeTransformer.h; sourceTree = "<group>"; };
+		73298F4918E1B89F00E05756 /* fileSizeTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fileSizeTransformer.m; sourceTree = "<group>"; };
+		73298F4B18E1C16C00E05756 /* AttachmentItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttachmentItemViewController.h; sourceTree = "<group>"; };
+		73298F4C18E1C16C00E05756 /* AttachmentItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttachmentItemViewController.m; sourceTree = "<group>"; };
+		732F941C18E40B60008AC581 /* MessageHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageHeaderView.h; sourceTree = "<group>"; };
+		732F941D18E40B60008AC581 /* MessageHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageHeaderView.m; sourceTree = "<group>"; };
+		7345876418E466C000B74D63 /* AccountsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountsManager.h; sourceTree = "<group>"; };
+		7345876518E466C000B74D63 /* AccountsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountsManager.m; sourceTree = "<group>"; };
+		7353903718DAFE3A00A070F2 /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Folder.h; sourceTree = "<group>"; };
+		7353903818DAFE3A00A070F2 /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Folder.m; sourceTree = "<group>"; };
 		736094111896744D00E664B4 /* Mail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		736094141896744D00E664B4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		736094171896744D00E664B4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -148,7 +207,6 @@
 		736094241896744D00E664B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		736094261896744D00E664B4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		736094271896744D00E664B4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7360942A1896744D00E664B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		7360942C1896744D00E664B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		736094321896744D00E664B4 /* MailTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MailTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		736094331896744D00E664B4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -157,8 +215,12 @@
 		7360943E1896744D00E664B4 /* MailTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MailTests.m; sourceTree = "<group>"; };
 		736094481896746100E664B4 /* mailcore2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = mailcore2.xcodeproj; path = "../../mailcore2/build-mac/mailcore2.xcodeproj"; sourceTree = "<group>"; };
 		7360945A1896749D00E664B4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		7361F1F8189A4DC700E90F33 /* TableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableView.h; path = ../TableView.h; sourceTree = "<group>"; };
-		7361F1F9189A4DC700E90F33 /* TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableView.m; path = ../TableView.m; sourceTree = "<group>"; };
+		7374E1D818E9400800741BE2 /* dateValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dateValueTransformer.h; sourceTree = "<group>"; };
+		7374E1D918E9400800741BE2 /* dateValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dateValueTransformer.m; sourceTree = "<group>"; };
+		7374E1DF18E96E2600741BE2 /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bar.png; path = Resources/bar.png; sourceTree = "<group>"; };
+		7374E1E118E9830F00741BE2 /* MessageRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageRowView.h; sourceTree = "<group>"; };
+		7374E1E218E9830F00741BE2 /* MessageRowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageRowView.m; sourceTree = "<group>"; };
+		739ABA0318F2918800EBD5F8 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		73AD529218A8EF1B00C3F1DB /* attachment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = attachment.png; path = Resources/attachment.png; sourceTree = "<group>"; };
 		73AD529318A8EF1B00C3F1DB /* bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bullet.png; path = Resources/bullet.png; sourceTree = "<group>"; };
 		73AD529A18A8F46700C3F1DB /* reply.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reply.png; path = Resources/reply.png; sourceTree = "<group>"; };
@@ -192,11 +254,16 @@
 		6317C0E418A54BA900479569 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7374E1DF18E96E2600741BE2 /* bar.png */,
+				732539B318E311EC00F21A17 /* menu.png */,
+				732539B118E30F0E00F21A17 /* open.png */,
+				732539AB18E30E6700F21A17 /* save.png */,
 				73AD529218A8EF1B00C3F1DB /* attachment.png */,
 				73AD529318A8EF1B00C3F1DB /* bullet.png */,
 				73AD529A18A8F46700C3F1DB /* reply.png */,
 				73AD529C18A8F8B900C3F1DB /* forward.png */,
 				6367D01C18AD479700B60DF4 /* search.png */,
+				73202D0118ED3F9100F0594B /* status.png */,
 				63F90CB218A69083005295CF /* logo */,
 			);
 			name = Resources;
@@ -206,13 +273,13 @@
 		63D7CCBE18A97BC1002B7A90 /* opened */ = {
 			isa = PBXGroup;
 			children = (
-				63D7CCBA18A97B73002B7A90 /* openedmail_16.png */,
-				63D7CCBB18A97B73002B7A90 /* openedmail_32.png */,
-				63D7CCB018A97A9A002B7A90 /* openedmail_64.png */,
-				63D7CCB118A97A9A002B7A90 /* openedmail_128.png */,
-				63D7CCB218A97A9A002B7A90 /* openedmail_256.png */,
-				63D7CCB318A97A9A002B7A90 /* openedmail_512.png */,
-				63D7CCB418A97A9A002B7A90 /* openedmail_1024.png */,
+				73202CE518ED33D500F0594B /* openedmail_16x16.png */,
+				73202CE618ED33D500F0594B /* openedmail_32x32.png */,
+				73202CE718ED33D500F0594B /* openedmail_64x64.png */,
+				73202CE818ED33D500F0594B /* openedmail_128x128.png */,
+				73202CE918ED33D500F0594B /* openedmail_256x256.png */,
+				73202CEA18ED33D500F0594B /* openedmail_512x512.png */,
+				73202CEB18ED33D500F0594B /* openedmail_1024x1024.png */,
 			);
 			name = opened;
 			sourceTree = "<group>";
@@ -220,7 +287,13 @@
 		63D7CCC618A98095002B7A90 /* closed */ = {
 			isa = PBXGroup;
 			children = (
-				63D7CCC018A98091002B7A90 /* closedmail_64_black.png */,
+				73202CF318ED3BD500F0594B /* closedmail_16x16.png */,
+				73202CF418ED3BD500F0594B /* closedmail_32x32.png */,
+				73202CF518ED3BD500F0594B /* closedmail_64x64.png */,
+				73202CF618ED3BD500F0594B /* closedmail_128x128.png */,
+				73202CF718ED3BD500F0594B /* closedmail_256x256.png */,
+				73202CF818ED3BD500F0594B /* closedmail_512x512.png */,
+				73202CF918ED3BD500F0594B /* closedmail_1024x1024.png */,
 			);
 			name = closed;
 			sourceTree = "<group>";
@@ -230,7 +303,7 @@
 			children = (
 				736094261896744D00E664B4 /* AppDelegate.h */,
 				736094271896744D00E664B4 /* AppDelegate.m */,
-				736094291896744D00E664B4 /* MainMenu.xib */,
+				739ABA0318F2918800EBD5F8 /* MainMenu.xib */,
 				6367D02418AD4A9700B60DF4 /* MessageDetail.h */,
 				6367D02518AD4A9700B60DF4 /* MessageDetail.m */,
 				6367D02618AD4A9700B60DF4 /* MessageDetail.xib */,
@@ -240,6 +313,11 @@
 				6367D02A18AD4A9700B60DF4 /* Settings.h */,
 				6367D02B18AD4A9700B60DF4 /* Settings.m */,
 				6367D02C18AD4A9700B60DF4 /* Settings.xib */,
+				73298F4B18E1C16C00E05756 /* AttachmentItemViewController.h */,
+				73298F4C18E1C16C00E05756 /* AttachmentItemViewController.m */,
+				73202D0A18ED60D600F0594B /* MenuViewController.h */,
+				73202D0B18ED60D600F0594B /* MenuViewController.m */,
+				73202D0C18ED60D600F0594B /* MenuViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -256,16 +334,18 @@
 		731FE27418A36BDF00715E68 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				73298F3F18E18FB500E05756 /* AttachmentView.h */,
+				73298F4018E18FB500E05756 /* AttachmentView.m */,
+				73298F4118E18FB500E05756 /* FormatView.h */,
+				73298F4218E18FB500E05756 /* FormatView.m */,
 				6367D01218AD457E00B60DF4 /* SearchField.h */,
 				6367D01318AD457E00B60DF4 /* SearchField.m */,
 				6367D01418AD457E00B60DF4 /* SearchFieldCell.h */,
 				6367D01518AD457E00B60DF4 /* SearchFieldCell.m */,
-				7361F1F8189A4DC700E90F33 /* TableView.h */,
-				7361F1F9189A4DC700E90F33 /* TableView.m */,
-				6367D03318AD4AC400B60DF4 /* AccountCellView.h */,
-				6367D03418AD4AC400B60DF4 /* AccountCellView.m */,
-				6367D03518AD4AC400B60DF4 /* MessageCellView.h */,
-				6367D03618AD4AC400B60DF4 /* MessageCellView.m */,
+				732F941C18E40B60008AC581 /* MessageHeaderView.h */,
+				732F941D18E40B60008AC581 /* MessageHeaderView.m */,
+				7374E1E118E9830F00741BE2 /* MessageRowView.h */,
+				7374E1E218E9830F00741BE2 /* MessageRowView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -275,8 +355,16 @@
 			children = (
 				6367D01E18AD4A4B00B60DF4 /* Account.h */,
 				6367D01F18AD4A4B00B60DF4 /* Account.m */,
+				7353903718DAFE3A00A070F2 /* Folder.h */,
+				7353903818DAFE3A00A070F2 /* Folder.m */,
 				6367D02018AD4A4B00B60DF4 /* Message.h */,
 				6367D02118AD4A4B00B60DF4 /* Message.m */,
+				73298F4518E1A9E500E05756 /* Attachment.h */,
+				73298F4618E1A9E500E05756 /* Attachment.m */,
+				7345876418E466C000B74D63 /* AccountsManager.h */,
+				7345876518E466C000B74D63 /* AccountsManager.m */,
+				731FE27918A3747E00715E68 /* ConnectionManager.h */,
+				731FE27A18A3747E00715E68 /* ConnectionManager.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -329,8 +417,10 @@
 				63E3398F18A3F99900B42F23 /* Controllers */,
 				731FE27518A371B700715E68 /* Models */,
 				731FE27418A36BDF00715E68 /* Views */,
-				731FE27918A3747E00715E68 /* ConnectionManager.h */,
-				731FE27A18A3747E00715E68 /* ConnectionManager.m */,
+				73298F4818E1B89F00E05756 /* fileSizeTransformer.h */,
+				73298F4918E1B89F00E05756 /* fileSizeTransformer.m */,
+				7374E1D818E9400800741BE2 /* dateValueTransformer.h */,
+				7374E1D918E9400800741BE2 /* dateValueTransformer.m */,
 				6317C0E418A54BA900479569 /* Resources */,
 				7360942C1896744D00E664B4 /* Images.xcassets */,
 				7360941B1896744D00E664B4 /* Supporting Files */,
@@ -390,6 +480,7 @@
 				7360940D1896744D00E664B4 /* Sources */,
 				7360940E1896744D00E664B4 /* Frameworks */,
 				7360940F1896744D00E664B4 /* Resources */,
+				7374E1E418E9960E00741BE2 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -426,7 +517,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
-				ORGANIZATIONNAME = Informatique;
+				ORGANIZATIONNAME = Coninckx;
 				TargetAttributes = {
 					736094311896744D00E664B4 = {
 						TestTargetID = 736094101896744D00E664B4;
@@ -502,25 +593,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				73AD529418A8EF1B00C3F1DB /* attachment.png in Resources */,
-				63D7CCBD18A97B73002B7A90 /* openedmail_32.png in Resources */,
+				73202CFB18ED3BD500F0594B /* closedmail_32x32.png in Resources */,
+				73202CED18ED33D500F0594B /* openedmail_32x32.png in Resources */,
 				7360941F1896744D00E664B4 /* InfoPlist.strings in Resources */,
 				73AD529D18A8F8B900C3F1DB /* forward.png in Resources */,
+				732539AC18E30E6700F21A17 /* save.png in Resources */,
+				732539B218E30F0E00F21A17 /* open.png in Resources */,
+				73202D0E18ED60D600F0594B /* MenuViewController.xib in Resources */,
 				73AD529B18A8F46700C3F1DB /* reply.png in Resources */,
-				63D7CCB618A97A9A002B7A90 /* openedmail_128.png in Resources */,
+				73202CF118ED33D500F0594B /* openedmail_512x512.png in Resources */,
+				73202CF218ED33D500F0594B /* openedmail_1024x1024.png in Resources */,
+				73202CEC18ED33D500F0594B /* openedmail_16x16.png in Resources */,
+				73202CFE18ED3BD500F0594B /* closedmail_256x256.png in Resources */,
+				7374E1E018E96E2600741BE2 /* bar.png in Resources */,
+				73202CFF18ED3BD500F0594B /* closedmail_512x512.png in Resources */,
+				73202CFC18ED3BD500F0594B /* closedmail_64x64.png in Resources */,
 				6367D03018AD4A9700B60DF4 /* NewMessage.xib in Resources */,
+				73202CFA18ED3BD500F0594B /* closedmail_16x16.png in Resources */,
 				7360942D1896744D00E664B4 /* Images.xcassets in Resources */,
-				63D7CCBC18A97B73002B7A90 /* openedmail_16.png in Resources */,
+				73202D0218ED3F9100F0594B /* status.png in Resources */,
 				6367D03218AD4A9700B60DF4 /* Settings.xib in Resources */,
-				63D7CCB818A97A9A002B7A90 /* openedmail_512.png in Resources */,
-				63D7CCB718A97A9A002B7A90 /* openedmail_256.png in Resources */,
 				73AD529518A8EF1B00C3F1DB /* bullet.png in Resources */,
 				6367D02E18AD4A9700B60DF4 /* MessageDetail.xib in Resources */,
+				739ABA0418F2918800EBD5F8 /* MainMenu.xib in Resources */,
+				73202CF018ED33D500F0594B /* openedmail_256x256.png in Resources */,
 				736094251896744D00E664B4 /* Credits.rtf in Resources */,
-				7360942B1896744D00E664B4 /* MainMenu.xib in Resources */,
+				73202CEE18ED33D500F0594B /* openedmail_64x64.png in Resources */,
+				73202CFD18ED3BD500F0594B /* closedmail_128x128.png in Resources */,
 				6367D01D18AD479700B60DF4 /* search.png in Resources */,
-				63D7CCB518A97A9A002B7A90 /* openedmail_64.png in Resources */,
-				63D7CCB918A97A9A002B7A90 /* openedmail_1024.png in Resources */,
-				63D7CCC118A98091002B7A90 /* closedmail_64_black.png in Resources */,
+				73202D0018ED3BD500F0594B /* closedmail_1024x1024.png in Resources */,
+				732539B418E311EC00F21A17 /* menu.png in Resources */,
+				73202CEF18ED33D500F0594B /* openedmail_128x128.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,19 +642,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73298F4D18E1C16C00E05756 /* AttachmentItemViewController.m in Sources */,
 				6367D01718AD457E00B60DF4 /* SearchFieldCell.m in Sources */,
+				732F941E18E40B60008AC581 /* MessageHeaderView.m in Sources */,
+				73298F4418E18FB500E05756 /* FormatView.m in Sources */,
 				736094281896744D00E664B4 /* AppDelegate.m in Sources */,
 				6367D02F18AD4A9700B60DF4 /* NewMessage.m in Sources */,
 				6367D02D18AD4A9700B60DF4 /* MessageDetail.m in Sources */,
-				6367D03718AD4AC400B60DF4 /* AccountCellView.m in Sources */,
-				6367D03818AD4AC400B60DF4 /* MessageCellView.m in Sources */,
+				7353903918DAFE3A00A070F2 /* Folder.m in Sources */,
 				6367D03118AD4A9700B60DF4 /* Settings.m in Sources */,
-				7361F1FA189A4DC700E90F33 /* TableView.m in Sources */,
+				7374E1DA18E9400800741BE2 /* dateValueTransformer.m in Sources */,
 				6367D02318AD4A4B00B60DF4 /* Message.m in Sources */,
+				73298F4318E18FB500E05756 /* AttachmentView.m in Sources */,
 				731FE27B18A3747E00715E68 /* ConnectionManager.m in Sources */,
+				73298F4718E1A9E500E05756 /* Attachment.m in Sources */,
+				7345876618E466C000B74D63 /* AccountsManager.m in Sources */,
+				7374E1E318E9830F00741BE2 /* MessageRowView.m in Sources */,
+				73298F4A18E1B89F00E05756 /* fileSizeTransformer.m in Sources */,
 				6367D01618AD457E00B60DF4 /* SearchField.m in Sources */,
 				6367D02218AD4A4B00B60DF4 /* Account.m in Sources */,
 				736094211896744D00E664B4 /* main.m in Sources */,
+				73202D0D18ED60D600F0594B /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,14 +704,6 @@
 				736094241896744D00E664B4 /* en */,
 			);
 			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		736094291896744D00E664B4 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7360942A1896744D00E664B4 /* Base */,
-			);
-			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 		7360943B1896744D00E664B4 /* InfoPlist.strings */ = {

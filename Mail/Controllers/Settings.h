@@ -8,8 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface Settings : NSWindowController <NSTableViewDataSource,NSTableViewDelegate>
+@interface Settings : NSWindowController <NSTextViewDelegate, NSWindowDelegate>
 
-@property (weak) IBOutlet NSTableView *table;
+@property (weak) IBOutlet NSTableView *tableView;
+@property (strong) IBOutlet NSArrayController *arrayController;
+
+@property (strong) NSArray *connectionType;
+
+@property (weak) IBOutlet NSView *settingsView;
 
 @end

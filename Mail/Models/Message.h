@@ -9,21 +9,32 @@
 #import <Foundation/Foundation.h>
 #import <MailCore/MailCore.h>
 
+#import "Account.h"
+#import "Folder.h"
+
 @interface Message : NSObject
 
-@property (assign,readonly) NSInteger uid;
-@property (strong,readonly) NSString  *from;
-@property (strong,readonly) NSString  *to;
-@property (strong,readonly) NSString  *subject;
-@property (strong,readonly) NSString  *htmlBody;
-@property (strong,readonly) NSString  *folder;
-@property (assign,readonly) BOOL seen;
-@property (assign,readonly) BOOL replied;
-@property (assign,readonly) BOOL forwarded;
+@property (assign) MCOMessageFlag flags;
+@property (assign) NSInteger uid;
+@property (strong) NSDate *date;
+@property (strong) NSString  *from;
+@property (strong) NSArray  *to;
+@property (strong) NSArray  *cc;
+@property (strong) NSArray  *bcc;
+@property (strong) NSString  *subject;
+@property (strong) NSString  *htmlBody;
 
-+ (void)fetchMessagesInFolder:(NSString *)folder completion:(void (^)(NSArray * messages))handler;
+@property (strong) NSMutableArray *attachments;
+@property (assign) BOOL hasAttachments;
 
-- (id)initWithMCOIMAPMessage:(MCOIMAPMessage *)msg folder:(NSString *)folder;
-- (void)fetchBody:(NSString *)swag completion:(void (^)(NSString * msgBody))handler;
+@property (assign) BOOL seen;
+@property (assign) BOOL replied;
+@property (assign) BOOL forwarded;
+
+
+- (id)initWithMCOIMAPMessage:(MCOIMAPMessage *)msg;
+//- (void)fetchBodyForFolder:(Folder *)folder account:(Account *)account completion:(void (^)(NSString * msgBody,NSMutableArray *attachments))handler;
+- (id)initBuildMessageWithTo: (NSArray *)to CC:(NSArray *)cc BCC:(NSArray *)bcc Subject:(NSString *)subject Body:(NSString *)body;
+- (void)sendMessage;
 
 @end
