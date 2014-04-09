@@ -14,22 +14,13 @@
 
 @implementation Folder
 
-
-
--(id) initWithName:(NSString *)name indent:(NSUInteger)indent flags:(MCOIMAPFolderFlag) flags {
+-(id) initWithName:(NSString *)name flags:(MCOIMAPFolderFlag) flags {
     self = [super init];
     if (self) {
-        _indent = indent;
         _flags = flags;
-        NSString *nameWithIndent = @"";
-        
-        for (int i = 0; i < indent; i++) {
-            nameWithIndent = [nameWithIndent stringByAppendingString:TAB];
-        }
-        nameWithIndent = [nameWithIndent stringByAppendingString:name];
-        _name = nameWithIndent;
+        _name = name;
         _label = _name;
-        
+        _folders = [NSMutableArray array];
     }
 
     return self;
@@ -67,7 +58,34 @@
 }
 
 - (BOOL) isLeaf {
-    return YES;
+    return self.folders.count==0;
 }
-
+    
+- (NSImage *)image {
+    
+    if ([self.label isEqualToString:@"Inbox"]) {
+        return [NSImage imageNamed:@"inbox"];
+    }
+    else if ([self.label isEqualToString:@"Sent"]) {
+        return [NSImage imageNamed:@"outbox"];
+    }
+    else if ([self.label isEqualToString:@"Trash"]) {
+        return [NSImage imageNamed:@"trash"];
+    }
+    else if ([self.label isEqualToString:@"Drafts"]) {
+        return [NSImage imageNamed:@"draft"];
+    }
+    else if ([self.label isEqualToString:@"Spam"]) {
+        return [NSImage imageNamed:@"spam"];
+    }
+    else if ([self.label isEqualToString:@"Starred"]) {
+        return [NSImage imageNamed:@"starred"];
+    }
+    else if ([self.label isEqualToString:@"Important"]) {
+        return [NSImage imageNamed:@"important"];
+    }
+    else {
+        return [NSImage imageNamed:@"open"];
+    }
+}
 @end

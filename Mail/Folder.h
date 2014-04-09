@@ -18,9 +18,11 @@
 @property (nonatomic,assign) MCOIMAPFolderFlag flags;
 
 @property (strong) NSMutableArray *messages;
+@property (strong) NSMutableArray *folders;
+
 @property (assign) NSUInteger nbUnseenMessages;
 
-- (id) initWithName:(NSString *)name indent:(NSUInteger)indent flags:(MCOIMAPFolderFlag) flags;
+- (id) initWithName:(NSString *)name flags:(MCOIMAPFolderFlag) flags;
 - (void)fetchMessagesHeadersForAccount:(Account *)account;
 
 @end

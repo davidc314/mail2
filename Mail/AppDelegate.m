@@ -204,6 +204,18 @@
 - (IBAction)newMessage:(id)sender {
     newMessage = [[NewMessage alloc] init];
 }
-
+- (BOOL) outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item {
+    return ![[item representedObject] isKindOfClass:[Account class]];
+}
+- (NSView *) outlineView:(NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item  {
+    
+    if ([[item representedObject] isKindOfClass:[Account class]]) {
+        return [outlineView makeViewWithIdentifier:@"HeaderCell" owner:self];
+    }
+    else {
+        return [outlineView makeViewWithIdentifier:@"FolderCell" owner:self];
+    }
+    
+}
 
 @end

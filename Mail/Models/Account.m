@@ -137,15 +137,30 @@
         }
         
         for (MCOIMAPFolder *fetchedFolder in fetchedFolders) {
-            Folder *folder = [[Folder alloc] initWithName:fetchedFolder.path indent:0 flags:fetchedFolder.flags];
+            NSMutableArray *pathComponents = [[fetchedFolder.path componentsSeparatedByString:[NSString stringWithFormat:@"%c" , fetchedFolder.delimiter]] mutableCopy];
+            [pathComponents removeObject:@"[Gmail]"];
             
-            //Gmail imap folder
-            if (![folder.name isEqualToString:@"[Gmail]"]) {
+            if (pathComponents.count == 1) {
+                Folder *folder = [[Folder alloc] initWithName:fetchedFolder.path flags:fetchedFolder.flags];
                 [folders addObject:folder];
                 [folder fetchMessagesHeadersForAccount:self];
-                
             }
-            
+            else if (pathComponents.count > 0) {
+                
+                NSMutableArray *lastFolders = folders;
+                
+                for (NSString* path in pathComponents) {
+                    if ([self containsFolder:path array:lastFolders]) {
+                        lastFolders = [self containsFolder:path array:lastFolders].folders;
+                    }
+                    else {
+                        Folder *folder = [[Folder alloc]initWithName:fetchedFolder.path flags:fetchedFolder.flags];
+                        folder.label = path;
+                        [folder fetchMessagesHeadersForAccount:self];
+                        [lastFolders addObject:folder];
+                    }
+                }
+            }
         }
         if (![self isGMAIL]) {
             self.folders = [self sortFolders:folders provider:[[MCOMailProvidersManager sharedManager] providerForEmail:self.mail]];
@@ -155,8 +170,17 @@
         }
         
     }];
-    
 }
+
+- (Folder *) containsFolder:(NSString *)searchedFolder array:(NSArray *)folders {
+    for (Folder *folder in folders) {
+        if ([folder.label isEqualToString:searchedFolder]) {
+            return folder;
+        }
+    }
+    return nil;
+}
+
 
 - (id) sortFolders:(NSMutableArray *)folders provider:(MCOMailProvider *)provider {
     NSMutableArray *sortedFolders = [NSMutableArray array];
@@ -196,15 +220,6 @@
 - (id) sortGMAILFolders:(NSMutableArray *)folders {
     NSMutableArray *sortedFolders = [NSMutableArray array];
     
-    NSDictionary *folderFlags = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 @(MCOIMAPFolderFlagSentMail),@"Sent",
-                                 @(MCOIMAPFolderFlagDrafts),@"Drafts",
-                                 @(MCOIMAPFolderFlagImportant),@"Important",
-                                 @(MCOIMAPFolderFlagStarred),@"Starred",
-                                 @(MCOIMAPFolderFlagTrash),@"Trash",
-                                 @(MCOIMAPFolderFlagSpam),@"Spam",
-                                 @(MCOIMAPFolderFlagAllMail),@"All messages",
-                                 nil];
     for (Folder *folder in folders) {
         if ([folder.name isEqualToString:@"INBOX"]) {
             [sortedFolders addObject:folder];
@@ -213,13 +228,42 @@
             break;
         }
     }
-    for (id flag in folderFlags) {
+    
+    for (int i = 0; i<=12; i++) {
         for (Folder *folder in folders) {
-            
-            if (folder.flags & [folderFlags[flag] integerValue]) {
-                
+            if (folder.flags & (1 << i)) {
                 [sortedFolders addObject:folder];
-                folder.label = flag;
+                
+                switch (1 << i) {
+                    case (1 << 5):
+                        folder.label = @"Sent";
+                        break;
+                    case (1 << 6):
+                        folder.label = @"Starred";
+                        break;
+                    case (1 << 7):
+                        folder.label = @"All";
+                        break;
+                    case (1 << 8):
+                        folder.label = @"Trash";
+                        break;
+                    case (1 << 9):
+                        folder.label = @"Drafts";
+                        break;
+                    case (1 << 10):
+                        folder.label = @"Spam";
+                        break;
+                    case (1 << 11):
+                        folder.label = @"Important";
+                        break;
+                    case (1 << 12):
+                        folder.label = @"Archive";
+                        break;
+                    default:
+                        folder.label = folder.name;
+                        break;
+                }
+                
                 [folders removeObject:folder];
                 break;
             }
@@ -236,6 +280,9 @@
     
 - (NSString *)label {
     return self.name;
+}
+- (NSImage *)image {
+    return nil;
 }
 
 @end

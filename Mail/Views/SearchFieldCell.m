@@ -56,7 +56,7 @@
     
     // Draw top and bottom borders
     [[NSColor lightGrayColor] set];
-    NSRectFill(NSMakeRect(0, 0, NSWidth(cellFrame), 1));
+    //NSRectFill(NSMakeRect(0, 0, NSWidth(cellFrame), 1));
     NSRectFill(NSMakeRect(0, NSHeight(cellFrame)-1, NSWidth(cellFrame), 1));
     
     if ([self showsFirstResponder]) {

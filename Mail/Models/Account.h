@@ -43,5 +43,5 @@
 
 - (BOOL) isGMAIL;
 - (void) fetchFolders;
-- (NSString *)label;
+
 @end
