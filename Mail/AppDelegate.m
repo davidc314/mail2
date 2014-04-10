@@ -15,6 +15,8 @@
 #import "Message.h"
 #import "Account.h"
 
+#import "FolderRowView.h"
+
 #import "MenuViewController.h"
 
 @implementation AppDelegate
@@ -110,6 +112,10 @@
         }
     }];
 }
+- (IBAction)choseFolder:(id)sender {
+    self.selectedAccount = [[[sender itemAtRow:[sender selectedRow]] parentNode] representedObject];
+    self.selectedFolder = [[sender itemAtRow:[sender selectedRow]] representedObject];
+}
 
 - (void) choseAccount:(id)sender {
     self.selectedAccount = [[self.accountsManager accounts] objectAtIndex:[sender tag]];
@@ -122,7 +128,6 @@
     self.selectedFolder = self.selectedAccount.folders[0];
     
     [self.title setStringValue:[NSString stringWithFormat:@"%@ <%@>",self.selectedAccount.name,self.selectedAccount.mail]];
-    NSLog(@"%@",[self.treeController content]);
     [self.treeController rearrangeObjects];
 }
 
@@ -216,6 +221,9 @@
         return [outlineView makeViewWithIdentifier:@"FolderCell" owner:self];
     }
     
+}
+- (NSTableRowView *)outlineView:(NSOutlineView *)outlineView rowViewForItem:(id)item {
+    return [[FolderRowView alloc] init];
 }
 
 @end

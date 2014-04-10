@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <MailCore/MailCore.h>
-#import "Message.h"
+
+@class Account;
+
 
 @interface Folder : NSObject
 
@@ -20,7 +22,7 @@
 @property (strong) NSMutableArray *messages;
 @property (strong) NSMutableArray *folders;
 
-@property (assign) NSUInteger nbUnseenMessages;
+@property (assign) NSUInteger nbUnread;
 
 - (id) initWithName:(NSString *)name flags:(MCOIMAPFolderFlag) flags;
 - (void)fetchMessagesHeadersForAccount:(Account *)account;

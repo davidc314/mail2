@@ -423,8 +423,8 @@ CA
                                                                     <rect key="frame" x="1" y="0.0" width="173" height="25"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jiz-gF-81B">
-                                                                            <rect key="frame" x="1" y="5" width="173" height="14"/>
+                                                                        <textField horizontalHuggingPriority="100" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jiz-gF-81B">
+                                                                            <rect key="frame" x="1" y="5" width="136" height="14"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="ACCOUNT" id="75E-2g-mU9">
                                                                                 <font key="font" metaFont="smallSystemBold"/>
@@ -435,7 +435,23 @@ CA
                                                                                 </connections>
                                                                             </textFieldCell>
                                                                         </textField>
+                                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pAp-KJ-fTE">
+                                                                            <rect key="frame" x="143" y="4" width="27" height="17"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                            <buttonCell key="cell" type="inline" title="00" bezelStyle="inline" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pE6-OS-rI9">
+                                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                                <font key="font" metaFont="smallSystemBold"/>
+                                                                            </buttonCell>
+                                                                        </button>
                                                                     </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstItem="pAp-KJ-fTE" firstAttribute="leading" secondItem="Jiz-gF-81B" secondAttribute="trailing" constant="8" id="Qv3-hJ-2yT"/>
+                                                                        <constraint firstAttribute="centerY" secondItem="Jiz-gF-81B" secondAttribute="centerY" id="dWb-hJ-Uv0"/>
+                                                                        <constraint firstAttribute="centerY" secondItem="pAp-KJ-fTE" secondAttribute="centerY" id="eUE-rB-kYd"/>
+                                                                        <constraint firstItem="Jiz-gF-81B" firstAttribute="leading" secondItem="1wN-tg-FAH" secondAttribute="leading" constant="3" id="kwQ-XM-3kP"/>
+                                                                        <constraint firstItem="pAp-KJ-fTE" firstAttribute="leading" secondItem="Jiz-gF-81B" secondAttribute="trailing" constant="8" id="pTM-Mm-rn8"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="pAp-KJ-fTE" secondAttribute="trailing" constant="3" id="vvN-GM-mX5"/>
+                                                                    </constraints>
                                                                     <connections>
                                                                         <outlet property="textField" destination="Jiz-gF-81B" id="s7S-Hc-aVL"/>
                                                                     </connections>
@@ -464,6 +480,14 @@ CA
                                                                                 <binding destination="yki-md-5mm" name="value" keyPath="objectValue.label" id="HeP-Jh-BHv"/>
                                                                             </connections>
                                                                         </textField>
+                                                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s6k-N2-5CD">
+                                                                            <rect key="frame" x="143" y="1" width="27" height="17"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                            <buttonCell key="cell" type="inline" title="00" bezelStyle="inline" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iQL-nh-CLR">
+                                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                                <font key="font" metaFont="smallSystemBold"/>
+                                                                            </buttonCell>
+                                                                        </button>
                                                                     </subviews>
                                                                     <connections>
                                                                         <outlet property="imageView" destination="VcQ-5h-4BO" id="a6K-dR-BQY"/>
@@ -474,6 +498,7 @@ CA
                                                         </tableColumn>
                                                     </tableColumns>
                                                     <connections>
+                                                        <action selector="choseFolder:" target="494" id="zDF-KJ-x8D"/>
                                                         <binding destination="AnL-EG-RYc" name="content" keyPath="arrangedObjects.label" id="gPw-QH-uSf"/>
                                                         <outlet property="delegate" destination="494" id="x1i-G0-0MP"/>
                                                     </connections>
@@ -735,7 +760,7 @@ CA
         <image name="NSActionTemplate" width="14" height="14"/>
         <image name="attachment" width="128" height="128"/>
         <image name="bar" width="3" height="64"/>
-        <image name="forward" width="17" height="13"/>
-        <image name="reply" width="25" height="21"/>
+        <image name="forward" width="24" height="24"/>
+        <image name="reply" width="24" height="24"/>
     </resources>
 </document>

@@ -15,14 +15,14 @@
 - (id) initWithMessage:(Message *)message folder:(Folder *)folder account:(Account *)account {
     self = [super initWithWindowNibName:@"MessageDetail"];
     msg = message;
-    /*
+    
     [msg fetchBodyForFolder:folder account:account completion:^(NSString *msgBody, NSMutableArray *attachments) {
         [[_body mainFrame] loadHTMLString:msgBody baseURL:nil];
         [self.progress stopAnimation:self];
         [self.progress setHidden:YES];
         self.attachments = attachments;
-    }];
-    */
+    }]; 
+    
     return self;
 }
 - (void) windowDidLoad {

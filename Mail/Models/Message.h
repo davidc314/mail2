@@ -31,10 +31,13 @@
 @property (assign) BOOL replied;
 @property (assign) BOOL forwarded;
 
+- (void)fetchBodyForFolder:(Folder *)folder account:(Account *)account completion:(void (^)(NSString *, NSMutableArray *))handler;
 
 - (id)initWithMCOIMAPMessage:(MCOIMAPMessage *)msg;
 //- (void)fetchBodyForFolder:(Folder *)folder account:(Account *)account completion:(void (^)(NSString * msgBody,NSMutableArray *attachments))handler;
 - (id)initBuildMessageWithTo: (NSArray *)to CC:(NSArray *)cc BCC:(NSArray *)bcc Subject:(NSString *)subject Body:(NSString *)body;
+
+
 - (void)sendMessage;
 
 @end

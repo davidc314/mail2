@@ -8,6 +8,7 @@
 
 #import "Folder.h"
 #import "ConnectionManager.h"
+#import "Message.h"
 
 #define GMAIL_DEFAULT_FOLDER @"[Gmail]"
 #define TAB @"  "
@@ -43,16 +44,15 @@
             return;
         }
         NSMutableArray *messages = [NSMutableArray array];
-        NSUInteger unread = 0;
+       self.nbUnread = 0;
         
         for (MCOIMAPMessage *msg in fetchedMessages) {
             Message *message = [[Message alloc] initWithMCOIMAPMessage:msg];
             [messages addObject:message];
             if (!message.seen) {
-                unread++;
+                self.nbUnread++;
             }
         }
-        self.nbUnseenMessages = unread;
         self.messages = messages;
     }];
 }
@@ -85,7 +85,7 @@
         return [NSImage imageNamed:@"important"];
     }
     else {
-        return [NSImage imageNamed:@"open"];
+        return [NSImage imageNamed:@"folder"];
     }
 }
 @end
