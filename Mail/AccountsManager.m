@@ -10,7 +10,9 @@
 
 #define FILE_NAME @"/accounts_BIS.plist"
 
-@implementation AccountsManager
+@implementation AccountsManager {
+    NSUserDefaults *prefs;
+}
 
 + (id)sharedManager {
     static AccountsManager *sharedMyManager = nil;
@@ -30,7 +32,9 @@
 
 - (id)init {
     if (self = [super init]) {
-        _accounts = [NSKeyedUnarchiver unarchiveObjectWithFile:FILE_NAME];
+        prefs = [NSUserDefaults standardUserDefaults];
+        //_accounts = [NSKeyedUnarchiver unarchiveObjectWithFile:FILE_NAME];
+        _accounts = [prefs objectForKey:@"accounts"];
         if (!_accounts)
             _accounts = [[NSMutableArray alloc] init];
         [self fetchAll];
@@ -50,7 +54,9 @@
 
 - (BOOL) saveAccounts {
     NSLog(@"Save accounts %@",self.accounts);
-    return [NSKeyedArchiver archiveRootObject:self.accounts toFile:FILE_NAME];
+    //return [NSKeyedArchiver archiveRootObject:self.accounts toFile:FILE_NAME];
+    [prefs setObject:self.accounts forKey:@"accounts"];
+    return YES;
 }
 
 
