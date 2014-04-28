@@ -44,7 +44,7 @@
 
 - (BOOL) windowShouldClose:(id)sender {
     [self.window makeFirstResponder:self.window];
-    [[AccountsManager sharedManager] saveAccounts];
+    NSLog(@"SAVE OK ?: %hhd",[[AccountsManager sharedManager] saveAccounts]);
     return YES;
 }
 

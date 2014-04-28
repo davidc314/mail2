@@ -44,17 +44,15 @@
             return;
         }
         NSMutableArray *messages = [NSMutableArray array];
-       self.nbUnread = 0;
+       
         
         for (MCOIMAPMessage *msg in fetchedMessages) {
             Message *message = [[Message alloc] initWithMCOIMAPMessage:msg];
             [messages addObject:message];
-            if (!message.seen) {
-                self.nbUnread++;
-            }
         }
         self.messages = messages;
     }];
+    
 }
 
 - (BOOL) isLeaf {
@@ -62,30 +60,48 @@
 }
     
 - (NSImage *)image {
+    NSImage *image;
     
     if ([self.label isEqualToString:@"Inbox"]) {
-        return [NSImage imageNamed:@"inbox"];
+        image = [NSImage imageNamed:@"inbox"];
     }
     else if ([self.label isEqualToString:@"Sent"]) {
-        return [NSImage imageNamed:@"outbox"];
+        image = [NSImage imageNamed:@"outbox"];
     }
     else if ([self.label isEqualToString:@"Trash"]) {
-        return [NSImage imageNamed:@"trash"];
+        image = [NSImage imageNamed:@"trash"];
     }
     else if ([self.label isEqualToString:@"Drafts"]) {
-        return [NSImage imageNamed:@"draft"];
+        image = [NSImage imageNamed:@"draft"];
     }
     else if ([self.label isEqualToString:@"Spam"]) {
-        return [NSImage imageNamed:@"spam"];
+        image = [NSImage imageNamed:@"spam"];
     }
     else if ([self.label isEqualToString:@"Starred"]) {
-        return [NSImage imageNamed:@"starred"];
+        image = [NSImage imageNamed:@"starred"];
     }
     else if ([self.label isEqualToString:@"Important"]) {
-        return [NSImage imageNamed:@"important"];
+        image = [NSImage imageNamed:@"important"];
     }
     else {
-        return [NSImage imageNamed:@"folder"];
+        image = [NSImage imageNamed:@"folder"];
     }
+    
+    [image setTemplate:YES];
+    
+    return image;
+}
+- (BOOL) allRead {
+    return self.nbUnread == 0;
+}
+- (NSUInteger) nbUnread {
+    NSUInteger nbUnread = 0;
+    
+    for (Message* message in self.messages) {
+        if (!message.seen)
+            nbUnread++;
+    }
+    
+    return nbUnread;
 }
 @end

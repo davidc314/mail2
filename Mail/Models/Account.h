@@ -35,13 +35,18 @@
 
 @property (assign) BOOL sameAuth;
 @property (strong) NSMutableArray *folders;
-@property (assign) NSUInteger nbUnread;
 
 @property (assign) BOOL valid;
 
 @property (strong) MenuViewController *menuViewController;
 
 - (BOOL) isGMAIL;
+
+- (BOOL) allRead;
+- (NSUInteger) nbUnread;
+
 - (void) fetchFolders;
+
+
 
 @end

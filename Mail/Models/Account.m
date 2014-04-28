@@ -34,8 +34,6 @@
     _name = @"New Account";
     _mail = @"-";
     _valid = NO;
-    _nbUnread = 0;
-    
     
     return self;
 }
@@ -88,8 +86,6 @@
     NSLog(@"Connect account : %@",self);
     
     self.valid = [self.imapSession checkAccountOperation] && [self.smtpSession checkAccountOperationWithFrom:[MCOAddress addressWithMailbox:self.mail]];
-    
-    _menuViewController = [[MenuViewController alloc] initWithLabel:_name number:_nbUnread];
     
     return self;
 }
@@ -283,6 +279,19 @@
 }
 - (NSImage *)image {
     return nil;
+}
+- (BOOL) allRead {
+    return self.nbUnread == 0;
+}
+
+- (NSUInteger) nbUnread {
+    NSUInteger nbUnread = 0;
+    
+    for (Folder *folder in self.folders) {
+        nbUnread += folder.nbUnread;
+    }
+    
+    return nbUnread;
 }
 
 @end

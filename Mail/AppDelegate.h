@@ -21,6 +21,7 @@
 @property (weak) IBOutlet NSView *titleBarView;
 @property (weak) IBOutlet NSView *menuItemView;
 @property (weak) IBOutlet NSTextField *title;
+@property (weak) IBOutlet NSOutlineView *outlineView;
 
 @property (weak) IBOutlet NSProgressIndicator *progress;
 @property (weak) IBOutlet SearchField *search;

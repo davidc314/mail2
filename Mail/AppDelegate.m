@@ -59,6 +59,10 @@
     NSLog(@"Selected folder/account : %@,%@",self.selectedFolder.name,self.selectedAccount.name);
     [self.treeController rearrangeObjects];
     NSLog(@"%@",[self.treeController content]);
+    
+    [[NSImage imageNamed:@"reply"] setTemplate:YES];
+    [[NSImage imageNamed:@"forward"] setTemplate:YES];
+    [[NSImage imageNamed:@"attachment"] setTemplate:YES];
 }
 
 
@@ -88,7 +92,7 @@
         if(account.valid) {
             for (Folder *folder in account.folders) {
                 Message *lastMessage = [folder.messages lastObject];
-                MCOIMAPIdleOperation *idleOperation = [[account imapSession] idleOperationWithFolder:@"INBOX" lastKnownUID:(int)[lastMessage uid]];
+                MCOIMAPIdleOperation *idleOperation = [[account imapSession] idleOperationWithFolder:folder.name lastKnownUID:(int)[lastMessage uid]];
                 
                 [idleOperation start:^(NSError *error) {
                     [self startIDLEForAccount:account folder:folder];
@@ -100,10 +104,13 @@
         }
     }
 }
+- (IBAction)refresh:(id)sender {
+    [self.outlineView reloadData];
+}
 
 - (void) startIDLEForAccount:(Account *) account folder:(Folder *)folder {
     Message *lastMessage = [folder.messages lastObject];
-    MCOIMAPIdleOperation *idleOperation = [[account imapSession] idleOperationWithFolder:@"INBOX" lastKnownUID:(int)[lastMessage uid]];
+    MCOIMAPIdleOperation *idleOperation = [[account imapSession] idleOperationWithFolder:folder.name lastKnownUID:(int)[lastMessage uid]];
     
     [idleOperation start:^(NSError *error) {
         [self startIDLEForAccount:account folder:folder];

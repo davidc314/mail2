@@ -8,7 +8,7 @@
 
 #import "AccountsManager.h"
 
-#define FILE_NAME @"/accounts.plist"
+#define FILE_NAME @"/accounts_BIS.plist"
 
 @implementation AccountsManager
 
@@ -49,6 +49,7 @@
 }
 
 - (BOOL) saveAccounts {
+    NSLog(@"Save accounts %@",self.accounts);
     return [NSKeyedArchiver archiveRootObject:self.accounts toFile:FILE_NAME];
 }
 
