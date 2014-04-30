@@ -113,6 +113,7 @@
         handler(msgBody,self.attachments);
     }];
 }
+
 /*
 //Send new message
 - (void) sendMessage {
