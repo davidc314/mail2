@@ -8,11 +8,9 @@
 
 #import "AccountsManager.h"
 
-#define FILE_NAME @"/accounts_BIS.plist"
+#define FILE_NAME @"accounts.plist"
 
-@implementation AccountsManager {
-    NSUserDefaults *prefs;
-}
+@implementation AccountsManager
 
 + (id)sharedManager {
     static AccountsManager *sharedMyManager = nil;
@@ -25,16 +23,16 @@
 
 - (void) fetchAll {
     for (Account *account in _accounts) {
-        [account fetchFolders];
+        //if (account.valid) {
+            [account fetchFolders];
+        //}
     }
 }
 
 
 - (id)init {
     if (self = [super init]) {
-        prefs = [NSUserDefaults standardUserDefaults];
-        //_accounts = [NSKeyedUnarchiver unarchiveObjectWithFile:FILE_NAME];
-        _accounts = [prefs objectForKey:@"accounts"];
+        _accounts = [NSKeyedUnarchiver unarchiveObjectWithFile:[self pathForDataFile]];
         if (!_accounts)
             _accounts = [[NSMutableArray alloc] init];
         [self fetchAll];
@@ -45,7 +43,6 @@
 - (void) addAccount {
     Account *newAccount  = [[Account alloc] init];
     [self.accounts addObject:newAccount];
-    NSLog(@"Add new account %@",newAccount);
 }
 
 - (void) removeAccountsAtIndexes:(NSIndexSet *)indexes {
@@ -53,11 +50,25 @@
 }
 
 - (BOOL) saveAccounts {
-    NSLog(@"Save accounts %@",self.accounts);
-    //return [NSKeyedArchiver archiveRootObject:self.accounts toFile:FILE_NAME];
-    [prefs setObject:self.accounts forKey:@"accounts"];
-    return YES;
+    return [NSKeyedArchiver archiveRootObject:self.accounts toFile:[self pathForDataFile]];
 }
+
+- (NSString *) pathForDataFile
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    NSString *folder = @"~/Library/Application Support/Mail/";
+    folder = [folder stringByExpandingTildeInPath];
+    
+    if ([fileManager fileExistsAtPath: folder] == NO)
+    {
+        [fileManager createDirectoryAtPath: folder withIntermediateDirectories:NO attributes:nil error:nil];
+    }
+    
+    NSString *fileName = FILE_NAME;
+    return [folder stringByAppendingPathComponent: fileName];
+}
+
 
 
 @end

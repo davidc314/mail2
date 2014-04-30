@@ -40,10 +40,10 @@
 
 @property (strong) MenuViewController *menuViewController;
 
+@property (assign, nonatomic) NSUInteger nbUnread;
+
 - (BOOL) isGMAIL;
 
-- (BOOL) allRead;
-- (NSUInteger) nbUnread;
 
 - (void) fetchFolders;
 

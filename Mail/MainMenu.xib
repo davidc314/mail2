@@ -60,17 +60,6 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Accounts" id="G0F-Uu-3Gi">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Accounts" id="JBV-Zj-9E5">
-                        <items>
-                            <menuItem title="TEST" id="EE7-B9-gI8">
-                                <attributedString key="attributedTitle"/>
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                            </menuItem>
-                        </items>
-                    </menu>
-                </menuItem>
                 <menuItem title="Message" id="OCw-zG-7vB">
                     <menu key="submenu" title="Message" id="BCf-SV-rNz">
                         <items>
@@ -453,10 +442,14 @@ CA
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                             </textFieldCell>
                                                                             <connections>
-                                                                                <binding destination="1wN-tg-FAH" name="hidden" keyPath="objectValue.allRead" id="zhA-w3-Cic"/>
                                                                                 <binding destination="1wN-tg-FAH" name="value" keyPath="objectValue.nbUnread" id="Cda-DV-Dxj">
                                                                                     <dictionary key="options">
                                                                                         <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                                    </dictionary>
+                                                                                </binding>
+                                                                                <binding destination="1wN-tg-FAH" name="hidden" keyPath="objectValue.nbUnread" id="ZKg-fR-3rp">
+                                                                                    <dictionary key="options">
+                                                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
                                                                                     </dictionary>
                                                                                 </binding>
                                                                             </connections>
@@ -498,10 +491,14 @@ CA
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                             </textFieldCell>
                                                                             <connections>
-                                                                                <binding destination="yki-md-5mm" name="hidden" keyPath="objectValue.allRead" id="c7o-t1-2qv"/>
-                                                                                <binding destination="yki-md-5mm" name="value" keyPath="objectValue.nbUnread" id="1ZX-iL-dlA">
+                                                                                <binding destination="yki-md-5mm" name="value" keyPath="objectValue.nbUnread" id="4zb-nc-b98">
                                                                                     <dictionary key="options">
                                                                                         <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                                    </dictionary>
+                                                                                </binding>
+                                                                                <binding destination="yki-md-5mm" name="hidden" keyPath="objectValue.nbUnread" id="ags-sz-9wB">
+                                                                                    <dictionary key="options">
+                                                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
                                                                                     </dictionary>
                                                                                 </binding>
                                                                             </connections>
@@ -621,11 +618,11 @@ CA
                                                                                 </binding>
                                                                             </connections>
                                                                         </imageView>
-                                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="U5c-lm-Um6">
-                                                                            <rect key="frame" x="369" y="21" width="133" height="19"/>
+                                                                        <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="U5c-lm-Um6">
+                                                                            <rect key="frame" x="68" y="21" width="434" height="19"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="width" constant="129" id="arj-VH-niK"/>
+                                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="arj-VH-niK"/>
                                                                             </constraints>
                                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Date" id="9Os-jM-Yq1">
                                                                                 <font key="font" size="13" name="HelveticaNeue"/>
@@ -641,7 +638,7 @@ CA
                                                                             </connections>
                                                                         </textField>
                                                                         <imageView translatesAutoresizingMaskIntoConstraints="NO" id="Otb-cB-DIA" userLabel="Image View - Attachment">
-                                                                            <rect key="frame" x="351" y="24" width="12" height="12"/>
+                                                                            <rect key="frame" x="50" y="24" width="12" height="12"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="12" id="HWG-9p-N91"/>
@@ -685,7 +682,7 @@ CA
                                                                             </connections>
                                                                         </textField>
                                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cCG-h7-wcD">
-                                                                            <rect key="frame" x="8" y="22" width="337" height="20"/>
+                                                                            <rect key="frame" x="8" y="22" width="36" height="20"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="From" id="7oN-D3-J0u">
                                                                                 <font key="font" size="13" name="HelveticaNeue-Medium"/>
@@ -780,7 +777,6 @@ CA
                 <outlet property="inboxTable" destination="ycg-1J-jfG" id="S6P-xj-t5B"/>
                 <outlet property="outlineView" destination="sfH-w4-d1s" id="IbM-hb-rPY"/>
                 <outlet property="search" destination="0jx-0d-tTT" id="kg5-v4-0m0"/>
-                <outlet property="statusMenu" destination="JBV-Zj-9E5" id="8Mo-sD-hVo"/>
                 <outlet property="treeController" destination="AnL-EG-RYc" id="kfr-gq-Hfr"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
@@ -789,9 +785,10 @@ CA
         <arrayController objectClassName="Message" id="gol-Q4-5lU" userLabel="Messages">
             <connections>
                 <binding destination="494" name="contentArray" keyPath="selectedFolder.messages" id="QjB-uU-Wp0"/>
+                <binding destination="494" name="sortDescriptors" keyPath="sortedMessages" id="8Sn-H2-oRq"/>
             </connections>
         </arrayController>
-        <treeController objectClassName="" childrenKeyPath="folders" leafKeyPath="isLeaf" id="AnL-EG-RYc">
+        <treeController objectClassName="" automaticallyPreparesContent="YES" childrenKeyPath="folders" leafKeyPath="isLeaf" id="AnL-EG-RYc">
             <connections>
                 <binding destination="494" name="contentArray" keyPath="accountsManager.accounts" id="zBS-1b-1s4"/>
             </connections>
@@ -800,7 +797,7 @@ CA
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>
-        <image name="attachment" width="128" height="128"/>
+        <image name="attachment" width="12" height="12"/>
         <image name="bar" width="3" height="64"/>
         <image name="forward" width="24" height="24"/>
         <image name="reply" width="24" height="24"/>

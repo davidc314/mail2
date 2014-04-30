@@ -11,7 +11,6 @@
 #import "MessageDetail.h"
 #import "NewMessage.h"
 #import "Settings.h"
-#import "ConnectionManager.h"
 #import "Message.h"
 #import "Account.h"
 
@@ -34,6 +33,7 @@
     self = [super init];
   
     _accountsManager = [AccountsManager sharedManager];
+    [self registerAsObserver];
     
     if ([[_accountsManager accounts] count] != 0) {
         _selectedAccount = [_accountsManager accounts][0];
@@ -44,8 +44,8 @@
     
     
     //Sort the messages
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
-    _sortedMessages = [NSArray arrayWithObject:sortDescriptor];
+    NSSortDescriptor *messageSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
+    _sortedMessages = [NSArray arrayWithObject:messageSortDescriptor];
     
     return self;
 }
@@ -54,11 +54,9 @@
     [self.search bind:@"predicate" toObject:self.arrayController withKeyPath:@"filterPredicate" options:@{NSPredicateFormatBindingOption: @"from contains[cd] $value || subject contains[cd] $value"}];
     [self.inboxTable setDoubleAction:@selector(doubleClicked)];
     [self.progress setHidden:YES];
-    [self choseAccount:[self.statusMenu itemAtIndex:0]];
-    [self refreshAccountMenu];
-    NSLog(@"Selected folder/account : %@,%@",self.selectedFolder.name,self.selectedAccount.name);
+    //[self choseAccount:[self.statusMenu itemAtIndex:0]];
+    
     [self.treeController rearrangeObjects];
-    NSLog(@"%@",[self.treeController content]);
     
     [[NSImage imageNamed:@"reply"] setTemplate:YES];
     [[NSImage imageNamed:@"forward"] setTemplate:YES];
@@ -69,61 +67,24 @@
 - (void) initStatusMenu {
     //init status bar
     status = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    NSImage *iconNotif = [NSImage imageNamed:@"status"];
+    NSImage *iconNotif = [NSImage imageNamed:@"new_logo_notif"];
     [status setImage:iconNotif];
-    [status setTitle:@"3"];
+    [status setTitle:[NSString stringWithFormat:@"%lu",self.accountsManager.nbUnread]];
 }
 
-- (void) refreshAccountMenu {
-    [self.statusMenu removeAllItems];
-    
-    for (Account *account in self.accountsManager.accounts) {
-        NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:[NSString stringWithFormat:@"%@ <%@>",account.name,account.mail] action:@selector(choseAccount:) keyEquivalent:@""];
 
-        //[menuItem  setView:account.menuViewController.view];
-        menuItem.tag = [self.accountsManager.accounts indexOfObject:account];
-        [self.statusMenu addItem:menuItem];
-    }
-    
-    [status setMenu:self.statusMenu];
-}
-- (void) startAllIDLE {
-    for (Account *account in [self.accountsManager accounts]) {
-        if(account.valid) {
-            for (Folder *folder in account.folders) {
-                Message *lastMessage = [folder.messages lastObject];
-                MCOIMAPIdleOperation *idleOperation = [[account imapSession] idleOperationWithFolder:folder.name lastKnownUID:(int)[lastMessage uid]];
-                
-                [idleOperation start:^(NSError *error) {
-                    [self startIDLEForAccount:account folder:folder];
-                    if (error) {
-                        NSLog(@"ALL IDLE %@",error);
-                    }
-                }];
-            }
-        }
-    }
-}
 - (IBAction)refresh:(id)sender {
+    [status setTitle:[NSString stringWithFormat:@"%lu",self.accountsManager.nbUnread]];
+    [self.selectedFolder fetchMessagesHeadersForAccount:self.selectedAccount];
     [self.outlineView reloadData];
 }
 
-- (void) startIDLEForAccount:(Account *) account folder:(Folder *)folder {
-    Message *lastMessage = [folder.messages lastObject];
-    MCOIMAPIdleOperation *idleOperation = [[account imapSession] idleOperationWithFolder:folder.name lastKnownUID:(int)[lastMessage uid]];
-    
-    [idleOperation start:^(NSError *error) {
-        [self startIDLEForAccount:account folder:folder];
-        if (error) {
-            NSLog(@"IDLE %@",error);
-        }
-    }];
-}
+
 - (IBAction)choseFolder:(id)sender {
     self.selectedAccount = [[[sender itemAtRow:[sender selectedRow]] parentNode] representedObject];
     self.selectedFolder = [[sender itemAtRow:[sender selectedRow]] representedObject];
 }
-
+/*
 - (void) choseAccount:(id)sender {
     self.selectedAccount = [[self.accountsManager accounts] objectAtIndex:[sender tag]];
     
@@ -136,7 +97,7 @@
     
     [self.title setStringValue:[NSString stringWithFormat:@"%@ <%@>",self.selectedAccount.name,self.selectedAccount.mail]];
     [self.treeController rearrangeObjects];
-}
+}*/
 
 - (IBAction)deleteMessage:(id)sender {
     
@@ -231,6 +192,29 @@
 }
 - (NSTableRowView *)outlineView:(NSOutlineView *)outlineView rowViewForItem:(id)item {
     return [[FolderRowView alloc] init];
+}
+
+- (void)registerAsObserver
+{
+    for (Account *a in self.accountsManager.accounts) {
+        [a addObserver:self
+            forKeyPath:@"nbUnread"
+               options:(NSKeyValueObservingOptionNew |
+                        NSKeyValueObservingOptionOld)
+               context:NULL];
+    }
+    
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    NSUInteger count = 0;
+    
+    for (Account *account in self.accountsManager.accounts) {
+        count += account.nbUnread;
+    }
+    
+    self.accountsManager.nbUnread = count;
+    [status setTitle:[NSString stringWithFormat:@"%lu",count]];
 }
 
 @end

@@ -84,6 +84,13 @@
                                                             <rect key="frame" x="3" y="10" width="15" height="15"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="NSMenuOnStateTemplate" id="YLV-Kq-cQD"/>
+                                                            <connections>
+                                                                <binding destination="L8z-M1-iIh" name="hidden" keyPath="objectValue.valid" id="hTs-k6-6U1">
+                                                                    <dictionary key="options">
+                                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                                    </dictionary>
+                                                                </binding>
+                                                            </connections>
                                                         </imageView>
                                                     </subviews>
                                                     <connections>

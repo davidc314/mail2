@@ -30,6 +30,7 @@
 @property (assign) BOOL seen;
 @property (assign) BOOL replied;
 @property (assign) BOOL forwarded;
+@property (assign, nonatomic) BOOL unread;
 
 - (void)fetchBodyForFolder:(Folder *)folder account:(Account *)account completion:(void (^)(NSString *, NSMutableArray *))handler;
 

@@ -8,6 +8,7 @@
 
 #import "Account.h"
 #import "Folder.h"
+#import "MEssage.h"
 
 #define NAME @"NAME"
 #define MAIL @"MAIL"
@@ -83,11 +84,46 @@
     
     [self connectToIMAP];
     [self connectToSMTP];
-    NSLog(@"Connect account : %@",self);
     
-    self.valid = [self.imapSession checkAccountOperation] && [self.smtpSession checkAccountOperationWithFrom:[MCOAddress addressWithMailbox:self.mail]];
+    [self checkAccountOperations];
     
     return self;
+}
+- (void)registerAsObserver
+{
+    for (Folder *f in self.folders) {
+        [f addObserver:self
+                  forKeyPath:@"messages"
+                     options:(NSKeyValueObservingOptionNew |
+                              NSKeyValueObservingOptionOld)
+                     context:NULL];
+    }
+    
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    NSUInteger count = 0;
+    
+    for (Folder *folder in self.folders) {
+        count += folder.nbUnread;
+    }
+    
+    self.nbUnread = count;
+}
+
+- (void) checkAccountOperations  {
+    MCOIMAPOperation *imapCheckOperation = [self.imapSession checkAccountOperation];
+    MCOSMTPOperation *smtpCheckOperation = [self.smtpSession checkAccountOperationWithFrom:[MCOAddress addressWithMailbox:self.mail]];
+    
+   [imapCheckOperation start:^(NSError *error) {
+       if (!error) {
+           [smtpCheckOperation start:^(NSError *error) {
+               if (!error) {
+                   self.valid = YES;
+               }
+           }];
+       }
+   }];
 }
 
 - (void) encodeWithCoder:(NSCoder *)encoder {
@@ -120,8 +156,6 @@
 }
 
 - (void) fetchFolders {
-    NSLog(@"Fetching folders");
-    
     NSMutableArray *folders = [NSMutableArray array];
     
     MCOIMAPFetchFoldersOperation *fetchOperation = [self.imapSession fetchAllFoldersOperation];
@@ -136,8 +170,9 @@
             NSMutableArray *pathComponents = [[fetchedFolder.path componentsSeparatedByString:[NSString stringWithFormat:@"%c" , fetchedFolder.delimiter]] mutableCopy];
             [pathComponents removeObject:@"[Gmail]"];
             
+            Folder *folder = [[Folder alloc]initWithName:fetchedFolder.path flags:fetchedFolder.flags];
+            
             if (pathComponents.count == 1) {
-                Folder *folder = [[Folder alloc] initWithName:fetchedFolder.path flags:fetchedFolder.flags];
                 [folders addObject:folder];
                 [folder fetchMessagesHeadersForAccount:self];
             }
@@ -150,13 +185,14 @@
                         lastFolders = [self containsFolder:path array:lastFolders].folders;
                     }
                     else {
-                        Folder *folder = [[Folder alloc]initWithName:fetchedFolder.path flags:fetchedFolder.flags];
                         folder.label = path;
                         [folder fetchMessagesHeadersForAccount:self];
                         [lastFolders addObject:folder];
                     }
                 }
             }
+            
+ 
         }
         if (![self isGMAIL]) {
             self.folders = [self sortFolders:folders provider:[[MCOMailProvidersManager sharedManager] providerForEmail:self.mail]];
@@ -164,9 +200,11 @@
         else {
             self.folders = [self sortGMAILFolders:folders];
         }
+        [self registerAsObserver];
         
     }];
 }
+
 
 - (Folder *) containsFolder:(NSString *)searchedFolder array:(NSArray *)folders {
     for (Folder *folder in folders) {
@@ -279,19 +317,6 @@
 }
 - (NSImage *)image {
     return nil;
-}
-- (BOOL) allRead {
-    return self.nbUnread == 0;
-}
-
-- (NSUInteger) nbUnread {
-    NSUInteger nbUnread = 0;
-    
-    for (Folder *folder in self.folders) {
-        nbUnread += folder.nbUnread;
-    }
-    
-    return nbUnread;
 }
 
 @end

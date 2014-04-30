@@ -19,6 +19,7 @@
         _ext = [_ext substringToIndex:4];
     }
     _size = size;
+    _icon = [[NSWorkspace sharedWorkspace] iconForFileType:ext];
     
     return self;
 }

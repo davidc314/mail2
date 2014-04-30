@@ -44,8 +44,7 @@
 
 - (BOOL) windowShouldClose:(id)sender {
     [self.window makeFirstResponder:self.window];
-    NSLog(@"SAVE OK ?: %hhd",[[AccountsManager sharedManager] saveAccounts]);
-    return YES;
+    return [[AccountsManager sharedManager] saveAccounts];
 }
 
 - (NSMutableArray *) accounts {
@@ -64,10 +63,5 @@
     [self.settingsView setHidden:(self.tableView.selectedRow == -1)];
 }
 
- - (void)setValue:(id)value forKey:(NSString *)key
-{
-    NSLog(@"%@: %@", key, value);
-    [super setValue:value forKeyPath:key];
-}
 
 @end

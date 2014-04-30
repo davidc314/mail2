@@ -22,9 +22,7 @@
 @property (strong) NSMutableArray *messages;
 @property (strong) NSMutableArray *folders;
 
-
-- (BOOL) allRead;
-- (NSUInteger) nbUnread;
+@property (assign) NSUInteger nbUnread;
 
 - (id) initWithName:(NSString *)name flags:(MCOIMAPFolderFlag) flags;
 - (void)fetchMessagesHeadersForAccount:(Account *)account;

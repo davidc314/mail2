@@ -15,7 +15,7 @@
 - (id) initWithMessage:(Message *)message folder:(Folder *)folder account:(Account *)account {
     self = [super initWithWindowNibName:@"MessageDetail"];
     msg = message;
-    
+
     [msg fetchBodyForFolder:folder account:account completion:^(NSString *msgBody, NSMutableArray *attachments) {
         [[_body mainFrame] loadHTMLString:msgBody baseURL:nil];
         [self.progress stopAnimation:self];
@@ -31,8 +31,7 @@
     self.subject.stringValue = [msg subject];
     [self.progress startAnimation:self];
 }
-//lama451836
-//grandlama
+
 -(IBAction)attachmentPopupMenu:(id)sender {
     NSLog(@"Popup");
     
@@ -42,7 +41,7 @@
     
     NSEvent *event =  [NSEvent mouseEventWithType:NSLeftMouseDown
                                          location:menuOrigin
-                                    modifierFlags:NSLeftMouseDownMask // 0x100
+                                    modifierFlags:NSLeftMouseDownMask
                                         timestamp:0
                                      windowNumber:[[(NSButton *)sender window] windowNumber]
                                           context:[[(NSButton *)sender window] graphicsContext]
@@ -50,7 +49,16 @@
                                        clickCount:1
                                          pressure:1];
     
+    for (NSMenuItem *item in self.attachmentPopupMenu.itemArray) {
+        [item.image setTemplate:YES];
+    }
+    
     [NSMenu popUpContextMenu:self.attachmentPopupMenu withEvent:event forView:(NSButton *)sender];
+}
+- (IBAction)openAttachment:(id)sender {
+    
+}
+- (IBAction)saveAttachment:(id)sender {
 }
 @end
 

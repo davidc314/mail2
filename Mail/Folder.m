@@ -7,13 +7,13 @@
 //
 
 #import "Folder.h"
-#import "ConnectionManager.h"
 #import "Message.h"
 
 #define GMAIL_DEFAULT_FOLDER @"[Gmail]"
 #define TAB @"  "
 
 @implementation Folder
+
 
 -(id) initWithName:(NSString *)name flags:(MCOIMAPFolderFlag) flags {
     self = [super init];
@@ -22,18 +22,20 @@
         _name = name;
         _label = _name;
         _folders = [NSMutableArray array];
+        
+        
     }
 
     return self;
 }
+
+
 - (NSString *) description {
     return self.label;
 }
 
 - (void)fetchMessagesHeadersForAccount:(Account *)account
 {
-    NSLog(@"Fetching headers for account/folder:%@/%@",account,self);
-    
     MCOIMAPMessagesRequestKind requestKind = MCOIMAPMessagesRequestKindHeaders | MCOIMAPMessagesRequestKindFlags | MCOIMAPMessagesRequestKindStructure;
     MCOIndexSet *uids = [MCOIndexSet indexSetWithRange:MCORangeMake(1, UINT64_MAX)];
     MCOIMAPFetchMessagesOperation *fetchOperation = [account.imapSession fetchMessagesByUIDOperationWithFolder:self.name requestKind:requestKind uids:uids];
@@ -51,6 +53,9 @@
             [messages addObject:message];
         }
         self.messages = messages;
+        [self updateNbUnread];
+        
+        //[self startIDLEForAccount:account];
     }];
     
 }
@@ -91,17 +96,32 @@
     
     return image;
 }
-- (BOOL) allRead {
-    return self.nbUnread == 0;
-}
-- (NSUInteger) nbUnread {
-    NSUInteger nbUnread = 0;
+
+
+- (void)updateNbUnread
+{
+    NSUInteger count = 0;
     
     for (Message* message in self.messages) {
-        if (!message.seen)
-            nbUnread++;
-    }
-    
-    return nbUnread;
+     if (!message.seen)
+        count++;
+     }
+    self.nbUnread = count;
 }
+
+
+- (void) startIDLEForAccount:(Account *)account {
+    Message *lastMessage = [self.messages lastObject];
+    MCOIMAPIdleOperation *idleOperation = [account.imapSession idleOperationWithFolder:self.name lastKnownUID:(int)[lastMessage uid]];
+    // NSLog(@"Start IDLE %@/%@",account,self);
+    [idleOperation start:^(NSError *error) {
+        NSLog(@"IDLE : %@/%@",account,self.name);
+        
+        [self fetchMessagesHeadersForAccount:account];
+        if (error) {
+            NSLog(@"IDLE %@",error);
+        }
+    }];
+}
+
 @end

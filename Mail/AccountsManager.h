@@ -8,15 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import "Account.h"
+#import "Folder.h"
+#import "Message.h"
+
 
 @interface AccountsManager : NSObject
 
 @property (strong) NSMutableArray *accounts;
+@property (assign, nonatomic) NSUInteger nbUnread;
 
 + (id)sharedManager;
 
 - (void) addAccount;
 - (void) removeAccountsAtIndexes:(NSIndexSet *)indexes;
 - (BOOL) saveAccounts;
+
+- (NSUInteger) nbUnread;
 
 @end

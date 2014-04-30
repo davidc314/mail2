@@ -89,15 +89,15 @@
                             <constraint firstItem="m5n-0b-cef" firstAttribute="leading" secondItem="noV-QX-09j" secondAttribute="trailing" constant="8" id="rXw-IT-PS6"/>
                         </constraints>
                     </customView>
-                    <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" findBarPosition="aboveHorizontalRuler" translatesAutoresizingMaskIntoConstraints="NO" id="anF-Ef-Frg">
-                        <rect key="frame" x="0.0" y="0.0" width="740" height="50"/>
+                    <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" findBarPosition="aboveHorizontalRuler" translatesAutoresizingMaskIntoConstraints="NO" id="anF-Ef-Frg">
+                        <rect key="frame" x="0.0" y="0.0" width="740" height="70"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="81X-AO-lKe">
-                            <rect key="frame" x="0.0" y="0.0" width="740" height="50"/>
+                        <clipView key="contentView" copiesOnScroll="NO" id="81X-AO-lKe">
+                            <rect key="frame" x="0.0" y="0.0" width="740" height="70"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <collectionView maxNumberOfRows="1" id="MDe-BE-WZx">
-                                    <rect key="frame" x="0.0" y="0.0" width="740" height="50"/>
+                                <collectionView id="MDe-BE-WZx">
+                                    <rect key="frame" x="0.0" y="0.0" width="740" height="70"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="primaryBackgroundColor" white="0.0" alpha="0.0" colorSpace="deviceWhite"/>
                                     <connections>
@@ -106,13 +106,13 @@
                                     </connections>
                                 </collectionView>
                             </subviews>
-                            <color key="backgroundColor" name="windowFrameColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </clipView>
                         <constraints>
-                            <constraint firstAttribute="height" constant="50" id="6zA-8B-5Mm"/>
+                            <constraint firstAttribute="height" constant="70" id="6zA-8B-5Mm"/>
                         </constraints>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="fBv-te-xcc">
-                            <rect key="frame" x="1" y="144" width="233" height="15"/>
+                            <rect key="frame" x="-100" y="-100" width="233" height="15"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="8Us-qa-gjJ">
@@ -121,7 +121,7 @@
                         </scroller>
                     </scrollView>
                     <webView translatesAutoresizingMaskIntoConstraints="NO" id="I6x-LS-DZh">
-                        <rect key="frame" x="0.0" y="50" width="740" height="573"/>
+                        <rect key="frame" x="0.0" y="70" width="740" height="553"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
                             <nil key="identifier"/>
@@ -146,79 +146,47 @@
                     <constraint firstItem="I6x-LS-DZh" firstAttribute="top" secondItem="ckG-rC-5ZU" secondAttribute="bottom" id="g9V-br-Zex"/>
                 </constraints>
             </view>
-            <contentBorderThickness minY="50"/>
             <connections>
                 <outlet property="delegate" destination="-2" id="4"/>
             </connections>
         </window>
         <view id="n7X-CO-csI">
-            <rect key="frame" x="0.0" y="0.0" width="240" height="40"/>
+            <rect key="frame" x="0.0" y="0.0" width="82" height="70"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RS7-mW-JBK" customClass="AttachmentView">
-                    <rect key="frame" x="6" y="5" width="229" height="30"/>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wHS-W4-KgV">
+                    <rect key="frame" x="20" y="24" width="42" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <subviews>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rZ7-52-Kp3">
-                            <rect key="frame" x="54" y="9" width="105" height="16"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Name" id="9QK-3I-HAE">
-                                <font key="font" size="12" name="HelveticaNeue"/>
-                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                            </textFieldCell>
-                            <connections>
-                                <binding destination="4BV-Dr-jCV" name="value" keyPath="representedObject.name" id="ZVE-Sv-OPk"/>
-                            </connections>
-                        </textField>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lBh-U7-o8D">
-                            <rect key="frame" x="163" y="9" width="35" height="16"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Size" id="AZk-rd-vyD">
-                                <font key="font" size="12" name="HelveticaNeue"/>
-                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                            </textFieldCell>
-                            <connections>
-                                <binding destination="4BV-Dr-jCV" name="value" keyPath="representedObject.size" id="aCL-bo-Yie">
-                                    <dictionary key="options">
-                                        <string key="NSValueTransformerName">fileSizeTransformer</string>
-                                    </dictionary>
-                                </binding>
-                            </connections>
-                        </textField>
-                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tjo-wY-uiE" customClass="FormatView">
-                            <rect key="frame" x="5" y="5" width="43" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <subviews>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TbK-9l-0Xd">
-                                    <rect key="frame" x="2" y="5" width="38" height="17"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Ext" id="ZlF-Sn-Na0">
-                                        <font key="font" size="12" name="HelveticaNeue-Medium"/>
-                                        <color key="textColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                    <connections>
-                                        <binding destination="4BV-Dr-jCV" name="value" keyPath="representedObject.ext" id="dro-g2-vki"/>
-                                    </connections>
-                                </textField>
-                            </subviews>
-                        </customView>
-                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o1C-uR-6Jz">
-                            <rect key="frame" x="204" y="3" width="14" height="25"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="menu" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="qv1-ac-MTu">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                            <connections>
-                                <action selector="attachmentPopupMenu:" target="-2" id="yE8-ae-Try"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                </customView>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="UUG-hr-3hx"/>
+                        <constraint firstAttribute="width" constant="42" id="kuB-Pa-US7"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSApplicationIcon" id="Per-hW-yhb"/>
+                    <connections>
+                        <binding destination="4BV-Dr-jCV" name="value" keyPath="representedObject.icon" id="vKt-X7-TYg"/>
+                    </connections>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rZ7-52-Kp3">
+                    <rect key="frame" x="6" y="4" width="70" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Name" id="9QK-3I-HAE">
+                        <font key="font" size="12" name="HelveticaNeue"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="4BV-Dr-jCV" name="value" keyPath="representedObject.name" id="ZVE-Sv-OPk"/>
+                    </connections>
+                </textField>
             </subviews>
+            <constraints>
+                <constraint firstItem="rZ7-52-Kp3" firstAttribute="leading" secondItem="n7X-CO-csI" secondAttribute="leading" constant="8" id="6ak-wo-k4a"/>
+                <constraint firstAttribute="centerX" secondItem="wHS-W4-KgV" secondAttribute="centerX" id="BoR-nm-j1o"/>
+                <constraint firstAttribute="trailing" secondItem="rZ7-52-Kp3" secondAttribute="trailing" constant="8" id="EUf-3k-9Jq"/>
+                <constraint firstItem="wHS-W4-KgV" firstAttribute="top" secondItem="n7X-CO-csI" secondAttribute="top" constant="4" id="EpB-Iu-RAa"/>
+                <constraint firstItem="rZ7-52-Kp3" firstAttribute="top" secondItem="wHS-W4-KgV" secondAttribute="bottom" constant="2" id="Hf8-s9-Jlv"/>
+                <constraint firstAttribute="bottom" secondItem="rZ7-52-Kp3" secondAttribute="bottom" constant="4" id="NtQ-Eb-IKl"/>
+            </constraints>
         </view>
         <arrayController id="9nC-cx-I2g">
             <connections>
@@ -232,21 +200,27 @@
         </collectionViewItem>
         <menu id="Ebb-zE-Fi7">
             <items>
-                <menuItem title="Open" image="open" id="9PT-M9-QLB">
+                <menuItem title="Open" image="opened_folder" id="9PT-M9-QLB">
                     <attributedString key="attributedTitle"/>
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="openAttachment:" target="-2" id="Tk0-9b-5Sy"/>
+                    </connections>
                 </menuItem>
                 <menuItem title="Save" image="save" id="Sc9-ge-nzm">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="saveAttachment:" target="-2" id="62e-YI-GB1"/>
+                    </connections>
                 </menuItem>
             </items>
         </menu>
     </objects>
     <resources>
-        <image name="forward" width="51" height="34"/>
-        <image name="menu" width="128" height="128"/>
-        <image name="open" width="20.803611755371094" height="20.803611755371094"/>
-        <image name="reply" width="51" height="41"/>
-        <image name="save" width="20.803611755371094" height="20.803611755371094"/>
+        <image name="NSApplicationIcon" width="128" height="128"/>
+        <image name="forward" width="24" height="24"/>
+        <image name="opened_folder" width="20" height="15"/>
+        <image name="reply" width="24" height="24"/>
+        <image name="save" width="20" height="15"/>
     </resources>
 </document>

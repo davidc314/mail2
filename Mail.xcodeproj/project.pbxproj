@@ -35,7 +35,6 @@
 		731812DF18F8246F008E6D44 /* icon_128x128.png in Resources */ = {isa = PBXBuildFile; fileRef = 731812DA18F8246F008E6D44 /* icon_128x128.png */; };
 		731812E018F8246F008E6D44 /* icon_256x256.png in Resources */ = {isa = PBXBuildFile; fileRef = 731812DB18F8246F008E6D44 /* icon_256x256.png */; };
 		731812E118F8246F008E6D44 /* icon_512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 731812DC18F8246F008E6D44 /* icon_512x512.png */; };
-		731FE27B18A3747E00715E68 /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 731FE27A18A3747E00715E68 /* ConnectionManager.m */; };
 		73202CEC18ED33D500F0594B /* openedmail_16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = 73202CE518ED33D500F0594B /* openedmail_16x16.png */; };
 		73202CED18ED33D500F0594B /* openedmail_32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 73202CE618ED33D500F0594B /* openedmail_32x32.png */; };
 		73202CEE18ED33D500F0594B /* openedmail_64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = 73202CE718ED33D500F0594B /* openedmail_64x64.png */; };
@@ -53,8 +52,6 @@
 		73202D0218ED3F9100F0594B /* status.png in Resources */ = {isa = PBXBuildFile; fileRef = 73202D0118ED3F9100F0594B /* status.png */; };
 		73202D0D18ED60D600F0594B /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73202D0B18ED60D600F0594B /* MenuViewController.m */; };
 		73202D0E18ED60D600F0594B /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73202D0C18ED60D600F0594B /* MenuViewController.xib */; };
-		732539AC18E30E6700F21A17 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 732539AB18E30E6700F21A17 /* save.png */; };
-		732539B218E30F0E00F21A17 /* open.png in Resources */ = {isa = PBXBuildFile; fileRef = 732539B118E30F0E00F21A17 /* open.png */; };
 		732539B418E311EC00F21A17 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 732539B318E311EC00F21A17 /* menu.png */; };
 		73298F4318E18FB500E05756 /* AttachmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73298F4018E18FB500E05756 /* AttachmentView.m */; };
 		73298F4418E18FB500E05756 /* FormatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73298F4218E18FB500E05756 /* FormatView.m */; };
@@ -87,9 +84,12 @@
 		7374E1E018E96E2600741BE2 /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7374E1DF18E96E2600741BE2 /* bar.png */; };
 		7374E1E318E9830F00741BE2 /* MessageRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7374E1E218E9830F00741BE2 /* MessageRowView.m */; };
 		7374E1E518E9962700741BE2 /* MailCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 736094591896746100E664B4 /* MailCore.framework */; };
+		7375F7D9190F849A0076BF69 /* opened_folder.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 7375F7D8190F849A0076BF69 /* opened_folder.pdf */; };
+		7375F7DF190F8A4D0076BF69 /* save.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 7375F7DE190F8A4D0076BF69 /* save.pdf */; };
 		739ABA0418F2918800EBD5F8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 739ABA0318F2918800EBD5F8 /* MainMenu.xib */; };
-		73AD529418A8EF1B00C3F1DB /* attachment.png in Resources */ = {isa = PBXBuildFile; fileRef = 73AD529218A8EF1B00C3F1DB /* attachment.png */; };
 		73AD529518A8EF1B00C3F1DB /* bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 73AD529318A8EF1B00C3F1DB /* bullet.png */; };
+		73C40AE5190E564F0007C2BE /* attachment.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 73C40AE4190E564F0007C2BE /* attachment.pdf */; };
+		73C40AE7190E5A760007C2BE /* new_logo_notif.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 73C40AE6190E5A760007C2BE /* new_logo_notif.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,8 +194,6 @@
 		731812DA18F8246F008E6D44 /* icon_128x128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_128x128.png; path = Resources/logo/logo_new.iconset/icon_128x128.png; sourceTree = "<group>"; };
 		731812DB18F8246F008E6D44 /* icon_256x256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_256x256.png; path = Resources/logo/logo_new.iconset/icon_256x256.png; sourceTree = "<group>"; };
 		731812DC18F8246F008E6D44 /* icon_512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_512x512.png; path = Resources/logo/logo_new.iconset/icon_512x512.png; sourceTree = "<group>"; };
-		731FE27918A3747E00715E68 /* ConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionManager.h; sourceTree = "<group>"; };
-		731FE27A18A3747E00715E68 /* ConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionManager.m; sourceTree = "<group>"; };
 		73202CE518ED33D500F0594B /* openedmail_16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = openedmail_16x16.png; path = Resources/logo/openedmail/openedmail_16x16.png; sourceTree = "<group>"; };
 		73202CE618ED33D500F0594B /* openedmail_32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = openedmail_32x32.png; path = Resources/logo/openedmail/openedmail_32x32.png; sourceTree = "<group>"; };
 		73202CE718ED33D500F0594B /* openedmail_64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = openedmail_64x64.png; path = Resources/logo/openedmail/openedmail_64x64.png; sourceTree = "<group>"; };
@@ -214,8 +212,6 @@
 		73202D0A18ED60D600F0594B /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		73202D0B18ED60D600F0594B /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		73202D0C18ED60D600F0594B /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
-		732539AB18E30E6700F21A17 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = save.png; path = Resources/save.png; sourceTree = "<group>"; };
-		732539B118E30F0E00F21A17 /* open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = open.png; path = Resources/open.png; sourceTree = "<group>"; };
 		732539B318E311EC00F21A17 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = Resources/menu.png; sourceTree = "<group>"; };
 		73298F3F18E18FB500E05756 /* AttachmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttachmentView.h; sourceTree = "<group>"; };
 		73298F4018E18FB500E05756 /* AttachmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttachmentView.m; sourceTree = "<group>"; };
@@ -265,9 +261,12 @@
 		7374E1DF18E96E2600741BE2 /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bar.png; path = Resources/bar.png; sourceTree = "<group>"; };
 		7374E1E118E9830F00741BE2 /* MessageRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageRowView.h; sourceTree = "<group>"; };
 		7374E1E218E9830F00741BE2 /* MessageRowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageRowView.m; sourceTree = "<group>"; };
+		7375F7D8190F849A0076BF69 /* opened_folder.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = opened_folder.pdf; path = Resources/opened_folder.pdf; sourceTree = "<group>"; };
+		7375F7DE190F8A4D0076BF69 /* save.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = save.pdf; path = Resources/save.pdf; sourceTree = "<group>"; };
 		739ABA0318F2918800EBD5F8 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
-		73AD529218A8EF1B00C3F1DB /* attachment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = attachment.png; path = Resources/attachment.png; sourceTree = "<group>"; };
 		73AD529318A8EF1B00C3F1DB /* bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bullet.png; path = Resources/bullet.png; sourceTree = "<group>"; };
+		73C40AE4190E564F0007C2BE /* attachment.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = attachment.pdf; path = Resources/attachment.pdf; sourceTree = "<group>"; };
+		73C40AE6190E5A760007C2BE /* new_logo_notif.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = new_logo_notif.pdf; path = Resources/logo/new_logo_notif.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,14 +298,15 @@
 			children = (
 				734EC4D218F2CD3400DD1B2A /* folders */,
 				7374E1DF18E96E2600741BE2 /* bar.png */,
+				73C40AE4190E564F0007C2BE /* attachment.pdf */,
 				7313087618F570BC00243913 /* forward.pdf */,
 				7313087818F570C300243913 /* reply.pdf */,
 				7313087A18F5782700243913 /* search.pdf */,
 				732539B318E311EC00F21A17 /* menu.png */,
-				732539B118E30F0E00F21A17 /* open.png */,
-				732539AB18E30E6700F21A17 /* save.png */,
-				73AD529218A8EF1B00C3F1DB /* attachment.png */,
+				7375F7D8190F849A0076BF69 /* opened_folder.pdf */,
+				7375F7DE190F8A4D0076BF69 /* save.pdf */,
 				73AD529318A8EF1B00C3F1DB /* bullet.png */,
+				73C40AE6190E5A760007C2BE /* new_logo_notif.pdf */,
 				73202D0118ED3F9100F0594B /* status.png */,
 				63F90CB218A69083005295CF /* logo */,
 			);
@@ -423,8 +423,6 @@
 				73298F4618E1A9E500E05756 /* Attachment.m */,
 				7345876418E466C000B74D63 /* AccountsManager.h */,
 				7345876518E466C000B74D63 /* AccountsManager.m */,
-				731FE27918A3747E00715E68 /* ConnectionManager.h */,
-				731FE27A18A3747E00715E68 /* ConnectionManager.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -681,16 +679,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73AD529418A8EF1B00C3F1DB /* attachment.png in Resources */,
 				734EC4C418F2C2EC00DD1B2A /* openedmail_margin_128x128.png in Resources */,
+				73C40AE7190E5A760007C2BE /* new_logo_notif.pdf in Resources */,
 				7313086A18F51AA900243913 /* draft.pdf in Resources */,
 				73202CFB18ED3BD500F0594B /* closedmail_32x32.png in Resources */,
 				73202CED18ED33D500F0594B /* openedmail_32x32.png in Resources */,
 				7360941F1896744D00E664B4 /* InfoPlist.strings in Resources */,
 				734EC4C218F2C2EC00DD1B2A /* openedmail_margin_32x32.png in Resources */,
 				734EC4C518F2C2EC00DD1B2A /* openedmail_margin_256x256.png in Resources */,
-				732539AC18E30E6700F21A17 /* save.png in Resources */,
-				732539B218E30F0E00F21A17 /* open.png in Resources */,
+				73C40AE5190E564F0007C2BE /* attachment.pdf in Resources */,
 				73202D0E18ED60D600F0594B /* MenuViewController.xib in Resources */,
 				7313086B18F51AA900243913 /* important.pdf in Resources */,
 				731812DE18F8246F008E6D44 /* icon_32x32.png in Resources */,
@@ -699,6 +696,7 @@
 				7313086D18F51AA900243913 /* outbox.pdf in Resources */,
 				731812DD18F8246F008E6D44 /* icon_16x16.png in Resources */,
 				731812DF18F8246F008E6D44 /* icon_128x128.png in Resources */,
+				7375F7D9190F849A0076BF69 /* opened_folder.pdf in Resources */,
 				73202CF218ED33D500F0594B /* openedmail_1024x1024.png in Resources */,
 				73202CEC18ED33D500F0594B /* openedmail_16x16.png in Resources */,
 				7313087B18F5782700243913 /* search.pdf in Resources */,
@@ -733,6 +731,7 @@
 				732539B418E311EC00F21A17 /* menu.png in Resources */,
 				73202CEF18ED33D500F0594B /* openedmail_128x128.png in Resources */,
 				7313086F18F51AA900243913 /* starred.pdf in Resources */,
+				7375F7DF190F8A4D0076BF69 /* save.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -763,7 +762,6 @@
 				7374E1DA18E9400800741BE2 /* dateValueTransformer.m in Sources */,
 				6367D02318AD4A4B00B60DF4 /* Message.m in Sources */,
 				73298F4318E18FB500E05756 /* AttachmentView.m in Sources */,
-				731FE27B18A3747E00715E68 /* ConnectionManager.m in Sources */,
 				73298F4718E1A9E500E05756 /* Attachment.m in Sources */,
 				7345876618E466C000B74D63 /* AccountsManager.m in Sources */,
 				7374E1E318E9830F00741BE2 /* MessageRowView.m in Sources */,
