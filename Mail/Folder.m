@@ -52,8 +52,11 @@
             Message *message = [[Message alloc] initWithMCOIMAPMessage:msg];
             [messages addObject:message];
         }
+        
         self.messages = messages;
+        //[self registerAsObserver];
         [self updateNbUnread];
+        
         
         //[self startIDLEForAccount:account];
     }];
@@ -100,15 +103,26 @@
 
 - (void)updateNbUnread
 {
-    NSUInteger count = 0;
+    self.nbUnread = [[self.messages valueForKeyPath:@"@sum.unread"] integerValue];
+}
+/*
+- (void)registerAsObserver
+{
+    for (Message *m in self.messages) {
+        [m addObserver:self
+            forKeyPath:@"unread"
+               options:(NSKeyValueObservingOptionNew |
+                        NSKeyValueObservingOptionOld)
+               context:NULL];
+    }
     
-    for (Message* message in self.messages) {
-     if (!message.seen)
-        count++;
-     }
-    self.nbUnread = count;
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    NSLog (@"Pif");
+    
+    [self updateNbUnread];
+}*/
 
 - (void) startIDLEForAccount:(Account *)account {
     Message *lastMessage = [self.messages lastObject];

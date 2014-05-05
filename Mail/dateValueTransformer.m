@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Coninckx. All rights reserved.
 //
 
-#import "dateValueTransformer.h"
+#import "DateValueTransformer.h"
 
-@implementation dateValueTransformer
+@implementation DateValueTransformer
 
 - (id) transformedValue:(id)value {
     NSString *stringDate;

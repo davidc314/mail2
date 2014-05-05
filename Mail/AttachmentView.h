@@ -11,9 +11,12 @@
 @protocol AttachmentViewDelegate <NSObject>
 
 - (void) doubleClick:(id)sender ;
+- (void) rightClicked:(id)sender event:(NSEvent *)event ;
 
 @end
 
 @interface AttachmentView : NSView
 @property IBOutlet id delegate;
+@property (readwrite) BOOL selected;
+
 @end

@@ -27,7 +27,6 @@
 @property (strong) NSMutableArray *attachments;
 @property (assign) BOOL hasAttachments;
 
-@property (assign) BOOL seen;
 @property (assign) BOOL replied;
 @property (assign) BOOL forwarded;
 @property (assign, nonatomic) BOOL unread;

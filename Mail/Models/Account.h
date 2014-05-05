@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <MailCore/MailCore.h>
 
-#import "MenuViewController.h"
-
 @interface Account : NSObject <NSCoding>
 
 @property (strong) NSString  *name;
@@ -37,8 +35,6 @@
 @property (strong) NSMutableArray *folders;
 
 @property (assign) BOOL valid;
-
-@property (strong) MenuViewController *menuViewController;
 
 @property (assign, nonatomic) NSUInteger nbUnread;
 

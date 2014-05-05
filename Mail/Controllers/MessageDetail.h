@@ -13,14 +13,16 @@
 @interface MessageDetail : NSWindowController
 
 @property (weak) IBOutlet WebView *body;
-@property (weak) IBOutlet NSProgressIndicator *progress;
-@property (weak) IBOutlet NSTextField *from;
-@property (weak) IBOutlet NSTextField *subject;
 
-@property (strong) NSMutableArray *attachments;
+@property (weak) IBOutlet NSCollectionView *attachmentCollectionView;
+
+@property (strong) IBOutlet NSMenu *attachmentContextMenu;
+
+@property (strong) Message *message;
+
+@property (assign) BOOL fetching;
 
 - (id) initWithMessage:(Message *)message folder:(Folder *)folder account:(Account *)account;
 
-@property (strong) IBOutlet NSMenu *attachmentPopupMenu;
 
 @end

@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface fileSizeTransformer : NSValueTransformer
+@interface FileSizeTransformer : NSValueTransformer
 
 @end

@@ -53,11 +53,9 @@
         //Message flags
         _flags = [msg flags];
         
-        _seen = _flags  & MCOMessageFlagSeen;
+        self.unread = !(_flags  & MCOMessageFlagSeen);
         _replied = _flags & MCOMessageFlagAnswered;
         _forwarded = _flags & MCOMessageFlagForwarded;
-        
-        self.unread = !self.seen;
         
         //Attachments
         _hasAttachments = [[msg attachments] count] > 0;
@@ -92,7 +90,7 @@
         
         //Flag seen
         [setFlagsSeen start:^(NSError *error){}];
-        self.seen = YES;
+        self.unread = NO;
         
         //Get message body
         NSString * msgBody = [msg htmlBodyRendering];
@@ -100,10 +98,18 @@
         //Get message attachments
         self.attachments = [NSMutableArray array];
         
+        if ([[msg mainPart] isKindOfClass:[MCOAbstractMultipart class]]) {
+            NSArray *parts = [(MCOAbstractMultipart *)[msg mainPart] parts];
+            
+            for (MCOAbstractPart *part in parts) {
+                NSLog(@"Part type : %@",[part mimeType]);
+            }
+        }
+        
         for (MCOAttachment *attachment in [msg attachments]) {
             NSData *data = [attachment data];
             NSURL *fileURL = [NSURL URLWithString:[attachment filename]];
-            NSString *fileName = [[fileURL lastPathComponent] stringByDeletingPathExtension];
+            NSString *fileName = [fileURL lastPathComponent];
             Attachment *newAttachment = [[Attachment alloc] initWithName:fileName ext:[fileURL pathExtension]  size:[data length]];
             [self.attachments addObject:newAttachment];
         }

@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Informatique. All rights reserved.
 //
 
-#import "fileSizeTransformer.h"
+#import "FileSizeTransformer.h"
 
 #define KB pow(1024,1)
 #define MB pow(KB,2)
 #define GB pow(KB,3)
 
-@implementation fileSizeTransformer
+@implementation FileSizeTransformer
 
 - (id) transformedValue:(id)value {
     UInt64 intValue = [value unsignedLongLongValue];

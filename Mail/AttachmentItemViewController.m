@@ -30,4 +30,27 @@
     }
 }
 
+- (void) rightClicked:(id)sender event:(NSEvent *)event {
+    id delegate = [self.collectionView delegate];
+    if([delegate respondsToSelector:@selector(rightClicked:event:)]) {
+        [delegate rightClicked:self event:event];
+        //[self setSelected:YES];
+    }
+}
+
+-(void)setSelected:(BOOL)flag
+{
+    [super setSelected:flag];
+    /*
+    for (NSView *view in self.view.subviews) {
+        if ([view isKindOfClass:[AttachmentTextField class]]) {
+            [(AttachmentTextField *) view setSelected:flag];
+            [(AttachmentTextField *) view setNeedsDisplay:YES];
+        }
+    }
+     */
+    [(AttachmentView *) self.view setSelected:flag];
+    [(AttachmentView *) self.view setNeedsDisplay:YES];
+}
+
 @end

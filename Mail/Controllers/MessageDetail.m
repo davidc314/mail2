@@ -9,54 +9,51 @@
 #import "MessageDetail.h"
 
 @implementation MessageDetail
-{
-    Message *msg;
-}
+
 - (id) initWithMessage:(Message *)message folder:(Folder *)folder account:(Account *)account {
     self = [super initWithWindowNibName:@"MessageDetail"];
-    msg = message;
-
-    [msg fetchBodyForFolder:folder account:account completion:^(NSString *msgBody, NSMutableArray *attachments) {
+    _message = message;
+    _fetching = YES;
+    
+    [_message fetchBodyForFolder:folder account:account completion:^(NSString *msgBody, NSMutableArray *attachments) {
         [[_body mainFrame] loadHTMLString:msgBody baseURL:nil];
-        [self.progress stopAnimation:self];
-        [self.progress setHidden:YES];
-        self.attachments = attachments;
+        self.message.attachments = self.message.attachments;
+        self.fetching = NO;
     }]; 
     
     return self;
 }
 - (void) windowDidLoad {
-    self.window.title = [msg subject];
-    self.from.stringValue  = [msg from];
-    self.subject.stringValue = [msg subject];
-    [self.progress startAnimation:self];
 }
 
--(IBAction)attachmentPopupMenu:(id)sender {
-    NSLog(@"Popup");
+- (void) doubleClick:(id) sender
+{
     
-    NSRect frame = [(NSButton *)sender frame];
-    NSPoint menuOrigin = [[(NSButton *)sender superview] convertPoint:
-                          NSMakePoint(frame.origin.x, frame.origin.y+self.attachmentPopupMenu.size.height+frame.size.height) toView:nil];
+}
+
+- (void) rightClicked:(id)sender event:(NSEvent *)event
+{
+    NSLog(@"Right clicked on attachment %@",sender);
     
-    NSEvent *event =  [NSEvent mouseEventWithType:NSLeftMouseDown
-                                         location:menuOrigin
-                                    modifierFlags:NSLeftMouseDownMask
-                                        timestamp:0
-                                     windowNumber:[[(NSButton *)sender window] windowNumber]
-                                          context:[[(NSButton *)sender window] graphicsContext]
-                                      eventNumber:0
-                                       clickCount:1
-                                         pressure:1];
-    
-    for (NSMenuItem *item in self.attachmentPopupMenu.itemArray) {
-        [item.image setTemplate:YES];
+    // Multiple selection
+    if (self.attachmentCollectionView.selectionIndexes.count > 1) {
+        
+        if (![[self.attachmentCollectionView selectionIndexes] containsIndex:[[self.attachmentCollectionView subviews] indexOfObject:[sender view]]]) {
+            [self.attachmentCollectionView setSelectionIndexes:[NSIndexSet indexSet]];
+            [sender setSelected:YES];
+        }
     }
     
-    [NSMenu popUpContextMenu:self.attachmentPopupMenu withEvent:event forView:(NSButton *)sender];
+    // Single selection
+    else {
+        [self.attachmentCollectionView setSelectionIndexes:[NSIndexSet indexSet]];
+        [sender setSelected:YES];
+    }
+    [NSMenu popUpContextMenu:self.attachmentContextMenu withEvent:event forView:[sender view]];
 }
+
 - (IBAction)openAttachment:(id)sender {
-    
+    NSLog(@"Open %@",[[self.attachmentCollectionView content] objectsAtIndexes:[self.attachmentCollectionView selectionIndexes]]);
 }
 - (IBAction)saveAttachment:(id)sender {
 }

@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface dateValueTransformer : NSValueTransformer
+@interface DateValueTransformer : NSValueTransformer
 
 @end

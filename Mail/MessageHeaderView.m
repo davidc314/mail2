@@ -21,9 +21,14 @@
 
 - (void)drawRect:(NSRect)dirtyRect
 {
+    [[NSColor whiteColor] set];
+    NSRectFill(NSMakeRect(0, 0, self.frame.size.width, self.frame.size.height));
+    
+    [[NSColor grayColor] set];
+    NSRectFill(NSMakeRect(10, 0, self.frame.size.width-20, 1));
+    
 	[super drawRect:dirtyRect];
-	
-    // Drawing code here.
+    
 }
 
 @end

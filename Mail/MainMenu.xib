@@ -421,25 +421,13 @@ CA
                                                                     <rect key="frame" x="1" y="0.0" width="173" height="25"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <textField horizontalHuggingPriority="1" verticalHuggingPriority="750" horizontalCompressionResistancePriority="395" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jiz-gF-81B">
-                                                                            <rect key="frame" x="3" y="5" width="134" height="14"/>
-                                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" borderStyle="border" title="ACCOUNT" id="75E-2g-mU9">
-                                                                                <font key="font" metaFont="smallSystemBold"/>
-                                                                                <color key="textColor" red="0.43921568630000002" green="0.4941176471" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                                                <connections>
-                                                                                    <binding destination="1wN-tg-FAH" name="value" keyPath="objectValue.name" id="rzO-Zp-Lzz"/>
-                                                                                </connections>
-                                                                            </textFieldCell>
-                                                                        </textField>
-                                                                        <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7au-vD-orw">
-                                                                            <rect key="frame" x="145" y="4" width="25" height="17"/>
+                                                                        <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7au-vD-orw">
+                                                                            <rect key="frame" x="143" y="4" width="29" height="17"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="25" id="Sf9-2i-oe8"/>
                                                                             </constraints>
-                                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="border" alignment="right" title="000" id="4Pv-NI-39K">
+                                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="000" id="4Pv-NI-39K">
                                                                                 <font key="font" metaFont="system"/>
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -457,17 +445,26 @@ CA
                                                                                 </binding>
                                                                             </connections>
                                                                         </textField>
+                                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="V2E-cf-fQi">
+                                                                            <rect key="frame" x="6" y="6" width="133" height="14"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="ACCOUNT" id="eCD-As-TDO">
+                                                                                <font key="font" metaFont="smallSystemBold"/>
+                                                                                <color key="textColor" red="0.3891701212" green="0.3891701212" blue="0.3891701212" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                            </textFieldCell>
+                                                                            <connections>
+                                                                                <binding destination="1wN-tg-FAH" name="value" keyPath="objectValue.label" id="E1S-nl-UoT"/>
+                                                                            </connections>
+                                                                        </textField>
                                                                     </subviews>
                                                                     <constraints>
-                                                                        <constraint firstItem="7au-vD-orw" firstAttribute="leading" secondItem="Jiz-gF-81B" secondAttribute="trailing" constant="8" id="9w6-Dp-ZP2"/>
-                                                                        <constraint firstItem="Jiz-gF-81B" firstAttribute="leading" secondItem="1wN-tg-FAH" secondAttribute="leading" constant="3" id="DPU-RB-3qA"/>
-                                                                        <constraint firstAttribute="centerY" secondItem="Jiz-gF-81B" secondAttribute="centerY" id="XHX-0o-ZIV"/>
+                                                                        <constraint firstAttribute="centerY" secondItem="V2E-cf-fQi" secondAttribute="centerY" id="dyU-yJ-HYc"/>
                                                                         <constraint firstAttribute="centerY" secondItem="7au-vD-orw" secondAttribute="centerY" id="uU7-61-9Ep"/>
                                                                         <constraint firstAttribute="trailing" secondItem="7au-vD-orw" secondAttribute="trailing" constant="3" id="xtj-Hg-Jzk"/>
+                                                                        <constraint firstItem="7au-vD-orw" firstAttribute="leading" secondItem="V2E-cf-fQi" secondAttribute="trailing" constant="8" id="yQc-ge-KRE"/>
+                                                                        <constraint firstItem="V2E-cf-fQi" firstAttribute="leading" secondItem="1wN-tg-FAH" secondAttribute="leading" constant="8" id="yX4-pu-c0S"/>
                                                                     </constraints>
-                                                                    <connections>
-                                                                        <outlet property="textField" destination="Jiz-gF-81B" id="s7S-Hc-aVL"/>
-                                                                    </connections>
                                                                 </tableCellView>
                                                                 <tableCellView identifier="FolderCell" id="yki-md-5mm" userLabel="Folder Cell View">
                                                                     <rect key="frame" x="1" y="25" width="173" height="30"/>
@@ -548,7 +545,7 @@ CA
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </clipView>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="6Ac-x9-tQH"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="6Ac-x9-tQH"/>
                                         </constraints>
                                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="2zF-nb-HvR">
                                             <rect key="frame" x="-7" y="-14" width="0.0" height="15"/>
@@ -636,9 +633,9 @@ CA
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                             </textFieldCell>
                                                                             <connections>
-                                                                                <binding destination="Nt3-Jo-BsW" name="value" keyPath="objectValue.date" id="33K-UK-ehs">
+                                                                                <binding destination="Nt3-Jo-BsW" name="value" keyPath="objectValue.date" id="SX7-O3-NQ4">
                                                                                     <dictionary key="options">
-                                                                                        <string key="NSValueTransformerName">dateValueTransformer</string>
+                                                                                        <string key="NSValueTransformerName">DateValueTransformer</string>
                                                                                     </dictionary>
                                                                                 </binding>
                                                                             </connections>
@@ -708,7 +705,11 @@ CA
                                                                             </constraints>
                                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" image="bar" id="1Ol-e7-WfJ"/>
                                                                             <connections>
-                                                                                <binding destination="Nt3-Jo-BsW" name="hidden" keyPath="objectValue.seen" id="eM8-Nl-53P"/>
+                                                                                <binding destination="Nt3-Jo-BsW" name="hidden" keyPath="objectValue.unread" id="ngF-1b-1cN">
+                                                                                    <dictionary key="options">
+                                                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                                                    </dictionary>
+                                                                                </binding>
                                                                             </connections>
                                                                         </imageView>
                                                                     </subviews>
